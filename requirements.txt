@@ -1,0 +1,9 @@
+pandas
+numpy
+anthropic          
+openai
+google-generativeai
+python-dotenv      
+pytest
+jupyter
+tqdm
