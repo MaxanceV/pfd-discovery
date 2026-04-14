@@ -4,10 +4,10 @@ Ce projet porte sur la découverte de **dépendances fonctionnelles basées sur 
 
 ## Informations Générales
 * **Matière :** Data Wrangling
-* **Groupe :** Justine Rault, Marie Probert, Baptiste Matrat, Maxance Villame
+* **Groupe :** Justine Rault, Marie Probert, Baptiste Matrat, Maxance Villame, Ferdinand Martin-Lavigne
 
 ## Objectifs du Projet
-Le projet s'articule autour de trois axes principaux[cite: 533]:
+Le projet s'articule autour de trois axes principaux:
 1. **Approche Classique :** Implémentation d'un algorithme de découverte de PFDs (extraction de motifs, génération de candidats et validation).
 2. **Workflow Agentique :** Mise en œuvre d'une solution utilisant des LLMs pour guider la recherche ou enrichir les données.
 3. **Évaluation :** Comparaison des performances et de la qualité des règles découvertes sur des jeux de données réels.
