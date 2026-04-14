@@ -81,6 +81,12 @@ def tane(df: pd.DataFrame, max_lhs_size: int = None) -> list:
             for A in list(X):
                 lhs = X - frozenset([A])
 
+                # Au niveau 1, lhs est vide -> on ne teste PAS les FDs triviales
+                # car elles n'ont de sens que si l'attribut est reellement constant
+                # ce que compute_partition gere deja (classes de taille > 1)
+                if not lhs:
+                    continue
+
                 # Pruning 1 : verifier qu'aucun sous-ensemble de lhs
                 # n'est deja un LHS minimal pour A.
                 # Si oui, ce candidat est non-minimal -> on saute.
@@ -90,19 +96,15 @@ def tane(df: pd.DataFrame, max_lhs_size: int = None) -> list:
                 if already_minimal:
                     continue
 
-                if not lhs:
-                    # Niveau 1 : lhs vide = tester si A est constant
-                    pi_lhs = [frozenset(range(len(df)))]
-                else:
-                    if lhs not in partitions:
-                        continue
-                    pi_lhs = partitions[lhs]
+                if lhs not in partitions:
+                    continue
 
+                pi_lhs = partitions[lhs]
                 pi_x = partitions[X]
 
                 # Test de la FD via les partitions (slide 13)
                 if check_fd_holds(pi_lhs, pi_x):
-                    lhs_tuple = tuple(sorted(lhs)) if lhs else ()
+                    lhs_tuple = tuple(sorted(lhs))
                     found_fds.append((lhs_tuple, A))
 
                     # Enregistrer ce LHS comme minimal pour A
