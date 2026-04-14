@@ -4,7 +4,7 @@ Ce projet porte sur la découverte de **dépendances fonctionnelles basées sur 
 
 ## Informations Générales
 * **Matière :** Data Wrangling
-* **Groupe :** Justine Rault, Marie Probert, Baptiste Matrat, Maxance Villame
+* **Groupe :** Justine Rault, Marie Probert, Baptiste Matrat, Maxance Villame, Ferdinand Martin-Lavigne
 
 ## Objectifs du Projet
 Le projet s'articule autour de trois axes principaux:
