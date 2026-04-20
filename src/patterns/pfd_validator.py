@@ -26,21 +26,30 @@ def compute_support_confidence(df: pd.DataFrame,
     group_details = []
     
     for lhs_val, group in groups:
-        size = len(group)
+        # On ignore les groupes vides ou composés uniquement de NaN
+        group = group.dropna()
+        if group.empty:
+            continue
+            
+        size = int(len(group)) # Conversion explicite
         support += size
         
-        # Mode = valeur la plus fréquente dans le groupe
-        mode_val = group.mode()[0]
-        mode_count = (group == mode_val).sum()
+        modes = group.mode()
+        if modes.empty:
+            continue
+            
+        mode_val = modes[0]
+        # Conversion du résultat de .sum() en int Python standard
+        mode_count = int((group == mode_val).sum())
         
         consistent_count += mode_count
-        violation_count = size - mode_count
+        violation_count = int(size - mode_count)
         
         group_details.append({
-            "lhs_value": lhs_val,
+            "lhs_value": str(lhs_val),
             "size": size,
-            "dominant_rhs": mode_val,
-            "confidence": mode_count / size,
+            "dominant_rhs": str(mode_val),
+            "confidence": float(round(mode_count / size, 4)),
             "violations": violation_count
         })
         
@@ -48,10 +57,10 @@ def compute_support_confidence(df: pd.DataFrame,
             for idx, val in group.items():
                 if val != mode_val:
                     violations.append({
-                        "index": idx,
-                        "lhs": lhs_val,
-                        "rhs_found": val,
-                        "rhs_expected": mode_val
+                        "index": int(idx), # Crucial : l'index est souvent un int64
+                        "lhs": str(lhs_val),
+                        "rhs_found": str(val),
+                        "rhs_expected": str(mode_val)
                     })
     
     confidence = consistent_count / support if support > 0 else 0
