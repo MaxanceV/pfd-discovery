@@ -1,0 +1,684 @@
+{
+  "profiling_results": {
+    "dataset": {
+      "rows": 3502,
+      "columns": 13,
+      "column_names": [
+        "Year",
+        "EMPLOYER_ID",
+        "NAME",
+        "ADDRESS_1",
+        "ADDRESS_2",
+        "CITY",
+        "STATE",
+        "ZIP",
+        "COUNTRY",
+        "PHONE",
+        "FAX",
+        "CREATED_DATE",
+        "ACTIVE"
+      ]
+    },
+    "profiles": {
+      "openai": {
+        "provider": "openai",
+        "success": false,
+        "error": "❌ OPENAI_API_KEY non trouvée dans .env",
+        "execution_time": 0
+      },
+      "gemini": {
+        "provider": "Gemini",
+        "model": "gemini-pro",
+        "execution_time": 0.11,
+        "profile": null,
+        "success": false,
+        "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+      },
+      "claude": {
+        "provider": "claude",
+        "success": false,
+        "error": "❌ ANTHROPIC_API_KEY non trouvée dans .env",
+        "execution_time": 0
+      },
+      "groq": {
+        "provider": "Groq",
+        "model": "llama-3.3-70b-versatile",
+        "execution_time": 1.16,
+        "profile": {
+          "column_types": {
+            "Year": "année",
+            "EMPLOYER_ID": "identifiant",
+            "NAME": "nom",
+            "ADDRESS_1": "adresse",
+            "ADDRESS_2": "adresse",
+            "CITY": "ville",
+            "STATE": "état",
+            "ZIP": "code_postal",
+            "COUNTRY": "pays",
+            "PHONE": "numéro_de_téléphone",
+            "FAX": "numéro_de_télécopie",
+            "CREATED_DATE": "date",
+            "ACTIVE": "statut"
+          },
+          "transformation_recommendations": {
+            "Year": [
+              "raw"
+            ],
+            "EMPLOYER_ID": [
+              "raw"
+            ],
+            "NAME": [
+              "first_token",
+              "last_token",
+              "raw"
+            ],
+            "ADDRESS_1": [
+              "first_token",
+              "last_token",
+              "raw"
+            ],
+            "ADDRESS_2": [
+              "first_token",
+              "last_token",
+              "raw"
+            ],
+            "CITY": [
+              "uppercase",
+              "lowercase",
+              "raw"
+            ],
+            "STATE": [
+              "uppercase",
+              "raw"
+            ],
+            "ZIP": [
+              "prefix_3",
+              "prefix_5",
+              "raw"
+            ],
+            "COUNTRY": [
+              "uppercase",
+              "raw"
+            ],
+            "PHONE": [
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "FAX": [
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "CREATED_DATE": [
+              "raw"
+            ],
+            "ACTIVE": [
+              "raw"
+            ]
+          },
+          "promising_rhs_targets": [
+            "STATE",
+            "ZIP",
+            "COUNTRY",
+            "CITY",
+            "ACTIVE"
+          ],
+          "reasoning": "Les colonnes les plus prometteuses pour les PFDs sont celles qui ont un nombre limité de valeurs uniques et une forte corrélation avec d'autres colonnes, telles que les états, les codes postaux, les pays et les villes.",
+          "llm_provider": "Groq",
+          "llm_model": "llama-3.3-70b-versatile"
+        },
+        "success": true,
+        "error": null
+      },
+      "huggingface": {
+        "provider": "HuggingFace",
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "execution_time": 3.58,
+        "profile": {
+          "column_types": {
+            "Year": "année",
+            "EMPLOYER_ID": "identifiant",
+            "NAME": "nom",
+            "ADDRESS_1": "adresse",
+            "ADDRESS_2": "adresse",
+            "CITY": "ville",
+            "STATE": "État",
+            "ZIP": "code_postal",
+            "COUNTRY": "pays",
+            "PHONE": "numéro_de_téléphone",
+            "FAX": "numéro_de_téléphone",
+            "CREATED_DATE": "date",
+            "ACTIVE": "statut"
+          },
+          "transformation_recommendations": {
+            "Year": [
+              "raw"
+            ],
+            "EMPLOYER_ID": [
+              "raw"
+            ],
+            "NAME": [
+              "first_token",
+              "last_token",
+              "raw"
+            ],
+            "ADDRESS_1": [
+              "raw"
+            ],
+            "ADDRESS_2": [
+              "raw"
+            ],
+            "CITY": [
+              "raw",
+              "uppercase"
+            ],
+            "STATE": [
+              "raw",
+              "uppercase"
+            ],
+            "ZIP": [
+              "prefix_3",
+              "prefix_5",
+              "raw"
+            ],
+            "COUNTRY": [
+              "raw"
+            ],
+            "PHONE": [
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "FAX": [
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "CREATED_DATE": [
+              "raw"
+            ],
+            "ACTIVE": [
+              "raw"
+            ]
+          },
+          "promising_rhs_targets": [
+            "ADDRESS_1",
+            "ADDRESS_2",
+            "ZIP",
+            "PHONE",
+            "FAX"
+          ],
+          "reasoning": "Les colonnes d'adresse, de code postal, de numéros de téléphone et de date sont les plus prometteuses pour des PFDs en raison de leur structure et de leur variété de valeurs potentiellement corrélées.",
+          "llm_provider": "HuggingFace",
+          "llm_model": "Qwen/Qwen2.5-7B-Instruct"
+        },
+        "success": true,
+        "error": null
+      },
+      "mistral": {
+        "provider": "Mistral",
+        "model": "mistral-large-latest",
+        "execution_time": 7.35,
+        "profile": {
+          "column_types": {
+            "Year": "year",
+            "EMPLOYER_ID": "identifier",
+            "NAME": "company_name",
+            "ADDRESS_1": "street_address",
+            "ADDRESS_2": "address_supplement",
+            "CITY": "city",
+            "STATE": "state_code",
+            "ZIP": "postal_code",
+            "COUNTRY": "country",
+            "PHONE": "phone_number",
+            "FAX": "fax_number",
+            "CREATED_DATE": "date",
+            "ACTIVE": "boolean_flag"
+          },
+          "transformation_recommendations": {
+            "Year": [
+              "raw"
+            ],
+            "EMPLOYER_ID": [
+              "raw"
+            ],
+            "NAME": [
+              "raw",
+              "first_token",
+              "last_token",
+              "uppercase",
+              "lowercase"
+            ],
+            "ADDRESS_1": [
+              "raw",
+              "first_token",
+              "last_token",
+              "prefix_3",
+              "prefix_5"
+            ],
+            "ADDRESS_2": [
+              "raw",
+              "first_token",
+              "last_token"
+            ],
+            "CITY": [
+              "raw",
+              "uppercase",
+              "lowercase"
+            ],
+            "STATE": [
+              "raw",
+              "uppercase"
+            ],
+            "ZIP": [
+              "raw",
+              "prefix_3",
+              "prefix_5"
+            ],
+            "COUNTRY": [
+              "raw",
+              "uppercase"
+            ],
+            "PHONE": [
+              "raw",
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "FAX": [
+              "raw",
+              "prefix_3",
+              "prefix_4",
+              "suffix_2"
+            ],
+            "CREATED_DATE": [
+              "raw"
+            ],
+            "ACTIVE": [
+              "raw"
+            ]
+          },
+          "promising_rhs_targets": [
+            "EMPLOYER_ID",
+            "ZIP",
+            "CITY",
+            "STATE",
+            "COUNTRY",
+            "ACTIVE"
+          ],
+          "reasoning": "Les colonnes cibles prometteuses pour les PFDs sont celles avec une cardinalité faible à modérée et une forte probabilité de dépendances fonctionnelles avec d'autres attributs (ex: ZIP → CITY/STATE, EMPLOYER_ID comme identifiant unique). Les colonnes comme NAME ou ADDRESS_1 ont trop de valeurs uniques pour être de bons RHS. Les transformations suggérées visent à capturer des patterns structurels (préfixes/suffixes) ou sémantiques (normalisation de cas) utiles pour les PFDs.",
+          "llm_provider": "Mistral",
+          "llm_model": "mistral-large-latest"
+        },
+        "success": true,
+        "error": null
+      }
+    },
+    "comparison": {
+      "successful": 0,
+      "failed": 3,
+      "fastest": "gemini",
+      "slowest": "gemini",
+      "times": {
+        "gemini": 0.12
+      }
+    }
+  },
+  "discovery_results": {
+    "pfds_found": 549,
+    "execution_time": 70.37
+  },
+  "selection_results": {
+    "candidates_count": 549,
+    "selections": {
+      "openai": {
+        "provider": "openai",
+        "success": false,
+        "error": "❌ OPENAI_API_KEY non trouvée dans .env",
+        "execution_time": 0,
+        "selected_count": 0
+      },
+      "gemini": {
+        "provider": "Gemini",
+        "model": "gemini-pro",
+        "execution_time": 0.11,
+        "selected_count": 0,
+        "confidence_score": 0,
+        "result": null,
+        "success": false,
+        "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+      },
+      "claude": {
+        "provider": "claude",
+        "success": false,
+        "error": "❌ ANTHROPIC_API_KEY non trouvée dans .env",
+        "execution_time": 0,
+        "selected_count": 0
+      },
+      "groq": {
+        "provider": "Groq",
+        "model": "llama-3.3-70b-versatile",
+        "execution_time": 0.06,
+        "selected_count": 0,
+        "confidence_score": 0,
+        "result": null,
+        "success": false,
+        "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqexe1r6ex6t0byw3z6zccwy` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98615, Requested 3668. Please try again in 32m52.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+      },
+      "huggingface": {
+        "provider": "HuggingFace",
+        "model": "Qwen/Qwen2.5-7B-Instruct",
+        "execution_time": 10.42,
+        "selected_count": 10,
+        "confidence_score": 0.95,
+        "result": {
+          "selected_candidates": [
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support and confidence, and it makes logical sense that an employer ID could be used to determine the country."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ACTIVE",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that an employer ID could be used to determine the active status."
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that a part of the employer ID could be used to determine the country."
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "ACTIVE",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that a part of the employer ID could be used to determine the active status."
+            },
+            {
+              "lhs": "EMPLOYER_ID__first_token",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the first token of the employer ID could be used to determine the country."
+            },
+            {
+              "lhs": "EMPLOYER_ID__first_token",
+              "rhs": "ACTIVE",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the first token of the employer ID could be used to determine the active status."
+            },
+            {
+              "lhs": "EMPLOYER_ID__last_token",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the last token of the employer ID could be used to determine the country."
+            },
+            {
+              "lhs": "EMPLOYER_ID__last_token",
+              "rhs": "ACTIVE",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the last token of the employer ID could be used to determine the active status."
+            },
+            {
+              "lhs": "EMPLOYER_ID__uppercase",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the uppercase version of the employer ID could be used to determine the country."
+            },
+            {
+              "lhs": "EMPLOYER_ID__uppercase",
+              "rhs": "ACTIVE",
+              "score": 0.95,
+              "reason": "High support and confidence, and it is logical that the uppercase version of the employer ID could be used to determine the active status."
+            }
+          ],
+          "rejected_candidates": [
+            {
+              "lhs": "PHONE__raw",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "PHONE__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "PHONE__last_token",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "PHONE__uppercase",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "ADDRESS_1__prefix_4",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "PHONE__prefix_5",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "FAX__raw",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "FAX__suffix_4",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "FAX__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            },
+            {
+              "lhs": "FAX__last_token",
+              "rhs": "COUNTRY",
+              "reason": "Low confidence and some violations, not logically related."
+            }
+          ],
+          "reasoning": "The selected candidates are those with high support, confidence, and logical relevance to the business context. The rejected candidates either have low confidence, some violations, or do not make logical sense in the context of the business data.",
+          "confidence_score": 0.95,
+          "llm_provider": "HuggingFace",
+          "llm_model": "Qwen/Qwen2.5-7B-Instruct"
+        },
+        "success": true,
+        "error": null
+      },
+      "mistral": {
+        "provider": "Mistral",
+        "model": "mistral-large-latest",
+        "execution_time": 26.08,
+        "selected_count": 10,
+        "confidence_score": 0.974,
+        "result": {
+          "selected_candidates": [
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "COUNTRY",
+              "score": 0.99,
+              "reason": "Dépendance forte et logique métier claire: un identifiant employeur détermine son pays. Support maximal, confidence à 100%, aucune violation."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ACTIVE",
+              "score": 0.99,
+              "reason": "Un identifiant employeur détermine son statut actif/inactif. Support maximal, confidence à 100%, aucune violation. Très pertinent pour la gestion des employeurs."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "NAME",
+              "score": 0.98,
+              "reason": "Un identifiant employeur détermine son nom. Support quasi-maximal, confidence à 100%, aucune violation. Logique métier solide."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "STATE",
+              "score": 0.98,
+              "reason": "Un identifiant employeur détermine son état/région. Support élevé, confidence à 100%, aucune violation. Utile pour la localisation géographique."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ADDRESS_1",
+              "score": 0.97,
+              "reason": "Un identifiant employeur détermine son adresse principale. Support élevé, confidence à 100%, aucune violation. Pertinent pour la gestion des adresses."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "CITY",
+              "score": 0.97,
+              "reason": "Un identifiant employeur détermine sa ville. Support élevé, confidence à 100%, aucune violation. Logique géographique claire."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ZIP",
+              "score": 0.97,
+              "reason": "Un identifiant employeur détermine son code postal. Support élevé, confidence à 100%, aucune violation. Très utile pour la localisation précise."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "PHONE",
+              "score": 0.97,
+              "reason": "Un identifiant employeur détermine son numéro de téléphone. Support élevé, confidence à 100%, aucune violation. Pertinent pour les contacts."
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "COUNTRY",
+              "score": 0.96,
+              "reason": "Un préfixe de 5 caractères de l'identifiant employeur détermine le pays. Support maximal, confidence à 100%, aucune violation. Alternative robuste à EMPLOYER_ID__raw."
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "ACTIVE",
+              "score": 0.96,
+              "reason": "Un préfixe de 5 caractères de l'identifiant employeur détermine le statut actif. Support maximal, confidence à 100%, aucune violation. Alternative robuste à EMPLOYER_ID__raw."
+            }
+          ],
+          "rejected_candidates": [
+            {
+              "lhs": "EMPLOYER_ID__prefix_4",
+              "rhs": "ACTIVE",
+              "reason": "Bien que la confidence soit à 100%, un préfixe de 4 caractères est moins spécifique qu'un préfixe de 5 ou l'ID complet. Risque de collisions plus élevé."
+            },
+            {
+              "lhs": "EMPLOYER_ID__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Le premier token de l'ID employeur peut être trop générique et moins stable que l'ID complet ou un préfixe fixe."
+            },
+            {
+              "lhs": "EMPLOYER_ID__last_token",
+              "rhs": "COUNTRY",
+              "reason": "Le dernier token de l'ID employeur peut être moins stable et moins spécifique que l'ID complet ou un préfixe fixe."
+            },
+            {
+              "lhs": "EMPLOYER_ID__uppercase",
+              "rhs": "COUNTRY",
+              "reason": "La transformation en majuscules de l'ID employeur n'ajoute pas de valeur métier par rapport à l'ID brut."
+            },
+            {
+              "lhs": "EMPLOYER_ID__lowercase",
+              "rhs": "COUNTRY",
+              "reason": "La transformation en minuscules de l'ID employeur n'ajoute pas de valeur métier par rapport à l'ID brut."
+            },
+            {
+              "lhs": "NAME__raw",
+              "rhs": "COUNTRY",
+              "reason": "Un nom d'employeur ne détermine pas logiquement un pays. Risque de collisions et de faux positifs."
+            },
+            {
+              "lhs": "NAME__uppercase",
+              "rhs": "COUNTRY",
+              "reason": "Même raison que NAME__raw → COUNTRY, avec une transformation inutile."
+            },
+            {
+              "lhs": "NAME__lowercase",
+              "rhs": "COUNTRY",
+              "reason": "Même raison que NAME__raw → COUNTRY, avec une transformation inutile."
+            },
+            {
+              "lhs": "ADDRESS_1__raw",
+              "rhs": "COUNTRY",
+              "reason": "Une adresse seule ne détermine pas toujours un pays de manière fiable (ex: adresses internationales ambiguës)."
+            },
+            {
+              "lhs": "ADDRESS_1__prefix_5",
+              "rhs": "COUNTRY",
+              "reason": "Un préfixe d'adresse est trop générique pour déterminer un pays de manière fiable."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "FAX",
+              "reason": "Support trop faible (2428), bien que la confidence soit à 100%. Peu pertinent pour la majorité des enregistrements."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "CREATED_DATE",
+              "reason": "Support très faible (1633), bien que la confidence soit à 100%. Peu pertinent pour la majorité des enregistrements."
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ADDRESS_2",
+              "reason": "Support très faible (721), bien que la confidence soit à 100%. Peu pertinent pour la majorité des enregistrements."
+            },
+            {
+              "lhs": "PHONE__raw",
+              "rhs": "COUNTRY",
+              "reason": "Confidence légèrement inférieure à 100% (99.97%) et présence de violations. Moins fiable que les dépendances basées sur EMPLOYER_ID."
+            },
+            {
+              "lhs": "FAX__raw",
+              "rhs": "COUNTRY",
+              "reason": "Confidence inférieure à 100% (99.94%) et présence de violations. Peu fiable et peu pertinent."
+            },
+            {
+              "lhs": "CITY__raw",
+              "rhs": "COUNTRY",
+              "reason": "Confidence inférieure à 100% (99.91%) et présence de violations. Une ville peut appartenir à plusieurs pays (ex: Paris, France vs Paris, Texas)."
+            },
+            {
+              "lhs": "NAME__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Confidence trop faible (99.89%) et présence de violations. Peu fiable et peu pertinent."
+            }
+          ],
+          "reasoning": "La stratégie d'évaluation a consisté à privilégier les dépendances fonctionnelles basées sur l'identifiant employeur (EMPLOYER_ID) en raison de leur stabilité et de leur pertinence métier. Les dépendances avec un support maximal, une confidence à 100% et aucune violation ont été priorisées. Les transformations (uppercase, lowercase, tokens) ont été rejetées car elles n'apportent pas de valeur ajoutée par rapport à l'ID brut ou un préfixe fixe. Les dépendances avec un support faible ou des violations ont été écartées, même si leur confidence était élevée. Les dépendances impliquant des colonnes comme NAME ou ADDRESS_1 ont été rejetées en raison de leur manque de spécificité et de leur risque de collisions.",
+          "confidence_score": 0.974,
+          "llm_provider": "Mistral",
+          "llm_model": "mistral-large-latest"
+        },
+        "success": true,
+        "error": null
+      }
+    },
+    "comparison": {
+      "successful": 0,
+      "failed": 3,
+      "fastest": "gemini",
+      "slowest": "gemini",
+      "times": {
+        "gemini": 0.14
+      },
+      "selected_counts": {
+        "gemini": 0
+      }
+    }
+  },
+  "providers_tested": [
+    "mistral",
+    "openai",
+    "groq",
+    "gemini",
+    "huggingface",
+    "claude"
+  ]
+}

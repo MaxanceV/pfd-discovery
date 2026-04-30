@@ -7,3 +7,7 @@ python-dotenv
 pytest
 jupyter
 tqdm
+groq
+mistralai
+huggingface_hub
+requests
