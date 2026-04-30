@@ -3,19 +3,24 @@ from src.patterns.extractor import TRANSFORMATIONS, enrich_dataframe_multi
 from src.patterns.pfd_validator import compute_support_confidence
 import time
 
+# 🔥 Ajout du paramètre config=None
 def discover_pfds(df: pd.DataFrame, 
                   min_support: int = 10, 
-                  min_confidence: float = 0.85):
+                  min_confidence: float = 0.85,
+                  config: dict = None):
     """
-    Parcourt toutes les transformations possibles pour découvrir des PFDs.
+    Parcourt les transformations possibles pour découvrir des PFDs.
+    Si une config est fournie, limite la recherche aux transformations spécifiées.
     """
     start_time = time.time()
     candidates_count = 0
     original_cols = df.columns.tolist()
     
-    # 1. Préparation de l'enrichissement (toutes les transformations pour chaque colonne)
-    # On exclut les colonnes trop uniques (ID) ou vides
-    config = {col: list(TRANSFORMATIONS.keys()) for col in original_cols}
+    # 1. Préparation de l'enrichissement
+    # 🔥 Si pas de config fournie (Classique), on teste TOUT
+    if config is None:
+        config = {col: list(TRANSFORMATIONS.keys()) for col in original_cols}
+        
     df_enriched = enrich_dataframe_multi(df, config)
     
     pattern_cols = [c for c in df_enriched.columns if "__" in c]
