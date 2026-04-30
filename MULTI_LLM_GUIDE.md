@@ -50,10 +50,10 @@ Tu peux configurer **autant de clés API que tu veux** en suivant la convention 
 
 ```bash
 # Requis : au moins une clé API
-GOOGLE_API_KEY=AIzaSyAkyVOvTXMi-pXVheK-dZR4vk7cr9SsgXs
-GROQ_API_KEY=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
-HUGGINGFACE_API_KEY=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
-MISTRAL_API_KEY=YRgKRtVo9MY4zF0GqWf5GrpQQfBCURno
+GOOGLE_API_KEY=Exemple
+GROQ_API_KEY=Exemple
+HUGGINGFACE_API_KEY=Exemple
+MISTRAL_API_KEY=Exemple
 ```
 
 **Attention :** Ne pas commit le `.env` (il est dans `.gitignore` ✅)
