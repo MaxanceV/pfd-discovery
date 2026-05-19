@@ -15,10 +15,6 @@ env/
 # Résultats générés
 results/
 
-# Jupyter
-notebooks/.ipynb_checkpoints/
-.ipynb_checkpoints/
-
 # OS
 .DS_Store
 **/.DS_Store
