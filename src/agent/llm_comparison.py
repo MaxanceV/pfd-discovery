@@ -8,6 +8,7 @@ Teste les mêmes workflows avec différents modèles et compare :
   - Capacité à identifier les patterns métier pertinents
 """
 
+import os
 import pandas as pd
 import json
 import time
@@ -19,11 +20,35 @@ from src.patterns.pfd_discovery import discover_pfds
 from src.patterns.extractor import enrich_dataframe_multi
 
 
-def profile_with_llm(df: pd.DataFrame, 
-                    llm_provider: LLMProvider) -> Dict[str, Any]:
+def _run_with_llm(provider: LLMProvider, func, *args, **kwargs) -> Dict[str, Any]:
+    """Exécute func(*args, **kwargs) en mesurant le temps et capturant les erreurs."""
+    start = time.time()
+    try:
+        result = func(*args, **kwargs)
+        return {
+            "provider": provider.provider_name,
+            "model": provider.model_name,
+            "execution_time": round(time.time() - start, 2),
+            "result": result,
+            "success": True,
+            "error": None,
+        }
+    except Exception as e:
+        return {
+            "provider": provider.provider_name,
+            "model": provider.model_name,
+            "execution_time": round(time.time() - start, 2),
+            "result": None,
+            "success": False,
+            "error": str(e),
+        }
+
+
+def profile_with_llm(df: pd.DataFrame,
+                     llm_provider: LLMProvider) -> Dict[str, Any]:
     """
     Profile une DataFrame avec un LLM spécifique.
-    
+
     Returns:
         {
           "provider": "provider_name",
@@ -34,39 +59,17 @@ def profile_with_llm(df: pd.DataFrame,
           "error": str or None
         }
     """
-    start_time = time.time()
-    
-    try:
-        profile = get_profile_summary(df, llm_provider=llm_provider)
-        execution_time = time.time() - start_time
-        
-        return {
-            "provider": llm_provider.provider_name,
-            "model": llm_provider.model_name,
-            "execution_time": round(execution_time, 2),
-            "profile": profile,
-            "success": True,
-            "error": None
-        }
-    except Exception as e:
-        execution_time = time.time() - start_time
-        return {
-            "provider": llm_provider.provider_name,
-            "model": llm_provider.model_name,
-            "execution_time": round(execution_time, 2),
-            "profile": None,
-            "success": False,
-            "error": str(e)
-        }
+    run = _run_with_llm(llm_provider, get_profile_summary, df, llm_provider=llm_provider)
+    return {**run, "profile": run["result"]}
 
 
-def select_candidates_with_llm(candidates: List[Dict], 
-                               llm_provider: LLMProvider,
-                               df_metadata: Dict = None,
-                               top_k: int = 10) -> Dict[str, Any]:
+def select_candidates_with_llm(candidates: List[Dict],
+                                llm_provider: LLMProvider,
+                                df_metadata: Dict = None,
+                                top_k: int = 10) -> Dict[str, Any]:
     """
     Sélectionne les meilleures candidates avec un LLM spécifique.
-    
+
     Returns:
         {
           "provider": "provider_name",
@@ -79,39 +82,16 @@ def select_candidates_with_llm(candidates: List[Dict],
           "error": str or None
         }
     """
-    start_time = time.time()
-    
-    try:
-        result = select_best_candidates(
-            candidates,
-            df_metadata=df_metadata,
-            top_k=top_k,
-            llm_provider=llm_provider
-        )
-        execution_time = time.time() - start_time
-        
-        return {
-            "provider": llm_provider.provider_name,
-            "model": llm_provider.model_name,
-            "execution_time": round(execution_time, 2),
-            "selected_count": len(result.get("selected_candidates", [])),
-            "confidence_score": result.get("confidence_score", 0),
-            "result": result,
-            "success": True,
-            "error": None
-        }
-    except Exception as e:
-        execution_time = time.time() - start_time
-        return {
-            "provider": llm_provider.provider_name,
-            "model": llm_provider.model_name,
-            "execution_time": round(execution_time, 2),
-            "selected_count": 0,
-            "confidence_score": 0,
-            "result": None,
-            "success": False,
-            "error": str(e)
-        }
+    run = _run_with_llm(
+        llm_provider, select_best_candidates,
+        candidates, df_metadata=df_metadata, top_k=top_k, llm_provider=llm_provider
+    )
+    result = run["result"] or {}
+    return {
+        **run,
+        "selected_count": len(result.get("selected_candidates", [])),
+        "confidence_score": result.get("confidence_score", 0),
+    }
 
 
 def compare_llm_profiles(df: pd.DataFrame, 
@@ -370,8 +350,6 @@ def full_comparison(df: pd.DataFrame,
         "providers_tested": providers_list
     }
 
-
-import os
 
 def export_results(results: Dict[str, Any], output_file: str = "llm_comparison_results.json"):
     """Exporte et fusionne les résultats de comparaison en JSON sans écraser l'historique."""

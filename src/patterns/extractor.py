@@ -20,28 +20,36 @@ import pandas as pd
 import re
 
 
+def _null_safe(func):
+    """Retourne "" si la valeur est NaN/None, sinon appelle func normalement."""
+    def wrapper(value, *args, **kwargs):
+        if pd.isna(value):
+            return ""
+        return func(value, *args, **kwargs)
+    return wrapper
+
+
+@_null_safe
 def extract_prefix(value, n: int) -> str:
     """
     Retourne les n premiers caracteres de value.
     Exemple : extract_prefix("90012", 3) -> "900"
     Utilise pour les codes postaux, codes pays, prefixes de codes...
     """
-    if pd.isna(value):
-        return ""
     return str(value)[:n]
 
 
+@_null_safe
 def extract_suffix(value, n: int) -> str:
     """
     Retourne les n derniers caracteres de value.
     Exemple : extract_suffix("john@gmail.com", 3) -> "com"
     Utilise pour les extensions, fins de codes...
     """
-    if pd.isna(value):
-        return ""
     return str(value)[-n:]
 
 
+@_null_safe
 def extract_first_token(value) -> str:
     """
     Retourne le premier mot de value.
@@ -50,13 +58,12 @@ def extract_first_token(value) -> str:
     Exemple : extract_first_token("Aarhus, Pam J.") -> "Aarhus"
     Utilise pour extraire le prenom ou le nom depuis un nom complet.
     """
-    if pd.isna(value):
-        return ""
     tokens = re.split(r'[\s,\.]+', str(value).strip())
     tokens = [t for t in tokens if t]
     return tokens[0] if tokens else ""
 
 
+@_null_safe
 def extract_last_token(value) -> str:
     """
     Retourne le dernier mot de value.
@@ -64,13 +71,12 @@ def extract_last_token(value) -> str:
     Exemple : extract_last_token("John Smith") -> "Smith"
     Utilise pour extraire le nom de famille.
     """
-    if pd.isna(value):
-        return ""
     tokens = re.split(r'[\s,\.]+', str(value).strip())
     tokens = [t for t in tokens if t]
     return tokens[-1] if tokens else ""
 
 
+@_null_safe
 def extract_domain(email) -> str:
     """
     Retourne le domaine d'une adresse email.
@@ -78,8 +84,6 @@ def extract_domain(email) -> str:
     Exemple : extract_domain("alice@us.example.com") -> "us.example.com"
     Retourne "" si la valeur n'est pas une adresse email valide.
     """
-    if pd.isna(email):
-        return ""
     s = str(email)
     if '@' not in s:
         return ""

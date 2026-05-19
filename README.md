@@ -232,3 +232,13 @@ git merge main
 - Utiliser les mêmes datasets pour toutes les méthodes (comparaison équitable)
 - Seuils par défaut suggérés : `support >= 10`, `confidence >= 0.85`
 - En cas de conflit Git : ne pas forcer le merge, consulter l'équipe
+
+## Lancer le code 
+# classique seul
+python -m src.experiments.runner --workflows classical
+
+# Avec agent_v1 et agent_v2
+python -m src.experiments.runner --workflows classical agent_v1 agent_v2
+
+# On peut préciser les providers si on veut pas lancer avec tous
+python -m src.experiments.runner --workflows classical agent_v1 --providers groq

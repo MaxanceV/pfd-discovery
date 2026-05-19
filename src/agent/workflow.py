@@ -18,8 +18,7 @@ from src.patterns.extractor import enrich_dataframe_multi, TRANSFORMATIONS
 
 # Imports des modules agentiques
 from src.agent.llm_provider import LLMProvider, get_default_provider
-from src.agent.semantic_profiler import get_optimized_config, get_profile_summary
-from src.agent.candidate_selector import select_best_candidates, get_top_candidates_for_testing
+from src.agent.semantic_profiler import get_optimized_config, get_profile_summary, suggest_candidate_pairs
 
 
 # ─── Workflow 1 : Approche classique ─────────────────────────────────────
@@ -77,12 +76,17 @@ def workflow_agent_v1(df: pd.DataFrame,
     print(f"📊 Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
     
     print(f"🤖 LLM ({llm_provider.provider_name}) analyse les colonnes et suggère les transformations...")
+    # Un seul appel API — on extrait la config depuis le même profil
     profile = get_profile_summary(df, llm_provider=llm_provider)
-    
+
     print(f"📋 Profil sémantique :")
     print(f"   Types identifiés : {list(profile.get('column_types', {}).keys())}")
-    
-    config = get_optimized_config(df, llm_provider=llm_provider)
+
+    # Extraire la config directement depuis le profil déjà obtenu (pas de second appel API)
+    config = profile.get("transformation_recommendations", {})
+    for col in df.columns:
+        if col not in config:
+            config[col] = ["raw"]
     
     selected_transforms_count = sum(len(v) for v in config.values())
     all_transforms_count = len(TRANSFORMATIONS) * len(df.columns)
@@ -127,73 +131,91 @@ def workflow_agent_v1(df: pd.DataFrame,
     return result
 
 
-# ─── Workflow 3 : Agentique v2 ───────────────────────────────────────────
+# ─── Workflow 3 : Agentique v2 (Guided Search) ───────────────────────────
 def workflow_agent_v2(df: pd.DataFrame,
                       min_support: int = 10,
                       min_confidence: float = 0.85,
-                      top_k_candidates: int = 10,
                       llm_provider: Optional[LLMProvider] = None) -> Dict:
-    
+    """
+    Guided Search : le LLM propose des paires candidates AVANT tout calcul,
+    l'algorithme valide uniquement celles-là.
+
+    Séparation des rôles :
+      - LLM  : boussole sémantique — propose les règles plausibles
+      - Algo : validation — calcule support et confidence sur ces règles uniquement
+    """
     if llm_provider is None:
         llm_provider = get_default_provider()
-    
+
     print("\n" + "="*60)
-    print(f"🟢 WORKFLOW 3 : AGENTIQUE v2 (LLM: {llm_provider.provider_name.upper()})")
+    print(f"🟢 WORKFLOW 2 : GUIDED SEARCH (LLM: {llm_provider.provider_name.upper()})")
     print("="*60)
-    
+
     start_time = time.time()
-    
+
     print(f"📊 Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
-    
-    print(f"🤖 LLM ({llm_provider.provider_name}) analyse les colonnes...")
-    profile = get_profile_summary(df, llm_provider=llm_provider)
-    config = get_optimized_config(df, llm_provider=llm_provider)
-    
-    df_enriched = enrich_dataframe_multi(df, config)
-    pattern_cols = [c for c in df_enriched.columns if "__" in c]
-    
-    all_candidates = []
-    for lhs in pattern_cols:
-        for rhs in df.columns:
-            if lhs.startswith(rhs):
-                continue
-            from src.patterns.pfd_validator import compute_support_confidence
-            res = compute_support_confidence(df_enriched, lhs, rhs)
-            if res['support'] >= min_support and res['confidence'] >= min_confidence:
-                all_candidates.append(res)
-    
-    if all_candidates:
-        print(f"🤖 LLM ({llm_provider.provider_name}) évalue les {len(all_candidates)} candidates...")
-        
-        selection = select_best_candidates(
-            all_candidates,
-            df_metadata=profile,
-            top_k=top_k_candidates,
-            min_confidence=min_confidence,
-            llm_provider=llm_provider
-        )
-        
-        selected = selection["selected_candidates"]
-        discovered_pfds = selected
-    else:
-        discovered_pfds = []
-        selection = {"selected_candidates": [], "confidence_score": 0.0, "reasoning": ""}
-    
+    print(f"🤖 LLM ({llm_provider.provider_name}) propose des dépendances candidates...")
+
+    # Étape 1 — Le LLM propose des paires (lhs_col, transform, rhs) sans aucun calcul
+    candidate_pairs = suggest_candidate_pairs(df, llm_provider=llm_provider)
+
+    print(f"   {len(candidate_pairs)} paires proposées par le LLM")
+
+    if not candidate_pairs:
+        print("   Aucune paire proposée — arrêt.")
+        return {
+            "discovered_pfds": [],
+            "execution_time_seconds": round(time.time() - start_time, 2),
+            "total_candidates_tested": 0,
+            "metadata": {
+                "approach": "agent_v2",
+                "llm_provider": llm_provider.provider_name,
+                "llm_model": llm_provider.model_name,
+            }
+        }
+
+    # Étape 2 — L'algorithme valide uniquement les paires proposées
+    print(f"📈 Validation algorithmique des {len(candidate_pairs)} paires...")
+
+    from src.patterns.extractor import enrich_dataframe
+    from src.patterns.pfd_validator import compute_support_confidence
+
+    discovered_pfds = []
+    for pair in candidate_pairs:
+        lhs_col   = pair["lhs_col"]
+        transform = pair["transform"]
+        rhs       = pair["rhs"]
+        lhs_enriched = f"{lhs_col}__{transform}"
+
+        df_enriched = enrich_dataframe(df, lhs_col, [transform])
+        metrics = compute_support_confidence(df_enriched, lhs_enriched, rhs)
+
+        if metrics["support"] >= min_support and metrics["confidence"] >= min_confidence:
+            discovered_pfds.append({
+                "lhs":        lhs_enriched,
+                "rhs":        rhs,
+                "support":    metrics["support"],
+                "confidence": metrics["confidence"],
+            })
+
     end_time = time.time()
-    
+
     result = {
         "discovered_pfds": discovered_pfds,
         "execution_time_seconds": round(end_time - start_time, 2),
-        "total_candidates_tested": len(all_candidates),
+        "total_candidates_tested": len(candidate_pairs),
         "metadata": {
             "approach": "agent_v2",
             "llm_provider": llm_provider.provider_name,
-            "llm_model": llm_provider.model_name
+            "llm_model": llm_provider.model_name,
+            "min_support": min_support,
+            "min_confidence": min_confidence,
         }
     }
-    
-    print(f"\n✅ Résultats agentique v2 ({llm_provider.provider_name}) :")
-    print(f"   Découvertes : {len(discovered_pfds)} PFDs")
+
+    print(f"\n✅ Résultats guided search ({llm_provider.provider_name}) :")
+    print(f"   Paires proposées par le LLM : {len(candidate_pairs)}")
+    print(f"   PFDs validées : {len(discovered_pfds)}")
     print(f"   Temps : {result['execution_time_seconds']}s")
-    
+
     return result

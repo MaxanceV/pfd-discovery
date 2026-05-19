@@ -28,11 +28,11 @@
       },
       "gemini": {
         "provider": "Gemini",
-        "model": "gemini-pro",
-        "execution_time": 0.11,
+        "model": "gemini-1.5-flash",
+        "execution_time": 0.23,
         "profile": null,
         "success": false,
-        "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+        "error": "Erreur API Gemini (404) : {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
       },
       "claude": {
         "provider": "claude",
@@ -58,7 +58,7 @@
             "PHONE": "numéro_de_téléphone",
             "FAX": "numéro_de_télécopie",
             "CREATED_DATE": "date",
-            "ACTIVE": "statut"
+            "ACTIVE": "état_actif"
           },
           "transformation_recommendations": {
             "Year": [
@@ -119,12 +119,11 @@
           },
           "promising_rhs_targets": [
             "STATE",
-            "ZIP",
-            "COUNTRY",
             "CITY",
-            "ACTIVE"
+            "ZIP",
+            "COUNTRY"
           ],
-          "reasoning": "Les colonnes les plus prometteuses pour les PFDs sont celles qui ont un nombre limité de valeurs uniques et une forte corrélation avec d'autres colonnes, telles que les états, les codes postaux, les pays et les villes.",
+          "reasoning": "Les colonnes STATE, CITY, ZIP et COUNTRY sont les plus prometteuses pour les PFDs car elles ont un nombre limité de valeurs uniques et sont susceptibles d'être liées à d'autres colonnes.",
           "llm_provider": "Groq",
           "llm_model": "llama-3.3-70b-versatile"
         },
@@ -341,13 +340,13 @@
       },
       "gemini": {
         "provider": "Gemini",
-        "model": "gemini-pro",
-        "execution_time": 0.11,
+        "model": "gemini-1.5-flash",
+        "execution_time": 0.19,
         "selected_count": 0,
         "confidence_score": 0,
         "result": null,
         "success": false,
-        "error": "404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods."
+        "error": "Erreur API Gemini (404) : {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n"
       },
       "claude": {
         "provider": "claude",
@@ -359,12 +358,126 @@
       "groq": {
         "provider": "Groq",
         "model": "llama-3.3-70b-versatile",
-        "execution_time": 0.06,
-        "selected_count": 0,
-        "confidence_score": 0,
-        "result": null,
-        "success": false,
-        "error": "Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kqexe1r6ex6t0byw3z6zccwy` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98615, Requested 3668. Please try again in 32m52.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}"
+        "execution_time": 1.96,
+        "selected_count": 10,
+        "confidence_score": 0.969,
+        "result": {
+          "selected_candidates": [
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "COUNTRY",
+              "score": 0.99,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "ACTIVE",
+              "score": 0.99,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "ACTIVE",
+              "score": 0.98,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__first_token",
+              "rhs": "COUNTRY",
+              "score": 0.98,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__raw",
+              "rhs": "NAME",
+              "score": 0.97,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__prefix_5",
+              "rhs": "NAME",
+              "score": 0.97,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__last_token",
+              "rhs": "COUNTRY",
+              "score": 0.96,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__uppercase",
+              "rhs": "COUNTRY",
+              "score": 0.96,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "EMPLOYER_ID__lowercase",
+              "rhs": "COUNTRY",
+              "score": 0.95,
+              "reason": "High support, confidence et logique métier"
+            },
+            {
+              "lhs": "NAME__raw",
+              "rhs": "COUNTRY",
+              "score": 0.94,
+              "reason": "High support, confidence et logique métier"
+            }
+          ],
+          "rejected_candidates": [
+            {
+              "lhs": "PHONE__raw",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "FAX__raw",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "CITY__raw",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "ADDRESS_1__prefix_4",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "PHONE__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "FAX__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "CITY__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "ADDRESS_1__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            },
+            {
+              "lhs": "NAME__first_token",
+              "rhs": "COUNTRY",
+              "reason": "Faible confiance"
+            }
+          ],
+          "reasoning": "La stratégie consiste à sélectionner les candidats avec un high support, une confiance élevée et une logique métier cohérente. Les candidats avec une faible confiance ou une logique métier peu claire sont rejetés. Les résultats montrent que les colonnes EMPLOYER_ID et NAME ont une forte relation avec la colonne COUNTRY, tandis que les colonnes PHONE, FAX et CITY ont une relation plus faible.",
+          "confidence_score": 0.969,
+          "llm_provider": "Groq",
+          "llm_model": "llama-3.3-70b-versatile"
+        },
+        "success": true,
+        "error": null
       },
       "huggingface": {
         "provider": "HuggingFace",
@@ -674,11 +787,11 @@
     }
   },
   "providers_tested": [
-    "mistral",
-    "openai",
     "groq",
-    "gemini",
+    "claude",
+    "mistral",
     "huggingface",
-    "claude"
+    "openai",
+    "gemini"
   ]
 }

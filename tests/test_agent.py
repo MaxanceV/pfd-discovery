@@ -1,5 +1,6 @@
 import os
-import google.generativeai as genai
+import sys
+from google import genai
 import pandas as pd
 from dotenv import load_dotenv
 
@@ -9,9 +10,10 @@ api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
     print("❌ Erreur : GOOGLE_API_KEY non trouvée dans le fichier .env")
-else:
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-flash')
+    sys.exit(1)
+
+client = genai.Client(api_key=api_key)
+MODEL_NAME = "gemini-2.5-flash"
 
 # 2. Création du dataset "Slide 7" (Exemple classique du cours)
 # Dans ce dataset, on a A <-> D et B <-> C
@@ -29,7 +31,7 @@ Tu es un expert en Qualité des Données spécialisé dans les Pattern Functiona
 Voici un échantillon de données (format CSV) :
 {df.to_csv(index=False)}
 
-Tâche : 
+Tâche :
 1. Analyse les relations entre les colonnes A, B, C et D.
 2. Identifie les dépendances fonctionnelles (FD) évidentes.
 3. Peux-tu prédire si une colonne détermine parfaitement une autre ?
@@ -40,10 +42,13 @@ Réponds de manière concise sous la forme : 'X -> Y'.
 # 4. Exécution du test
 print("--- Test de l'Agentique (Gemini) ---")
 try:
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt,
+    )
     print("\nAnalyse de l'IA :")
     print(response.text)
-    
+
     # Vérification simple
     if "A -> D" in response.text and "B -> C" in response.text:
         print("\n✅ Succès : L'IA a identifié les mêmes dépendances que l'algo classique !")

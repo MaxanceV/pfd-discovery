@@ -110,8 +110,9 @@ class OpenAIProvider(LLMProvider):
 class GeminiProvider(LLMProvider):
     """Provider pour Google Gemini (Méthode forte : API REST directe)."""
     
-    # On utilise 1.5-flash : ultra-rapide, gratuit (15 requêtes/min), et toujours en ligne.
-    def __init__(self, model_name: str = "gemini-1.5-flash"):
+    # On utilise 2.5-flash : ultra-rapide, gratuit (15 requêtes/min), et toujours en ligne.
+    # (gemini-1.5-flash a été retiré de l'API v1beta)
+    def __init__(self, model_name: str = "gemini-2.0-flash"):
         super().__init__(model_name)
         self.api_key = os.getenv("GOOGLE_API_KEY")
         
