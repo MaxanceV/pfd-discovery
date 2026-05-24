@@ -1,0 +1,2226 @@
+{
+  "dataset": "t2.csv",
+  "workflow": "agent_v1",
+  "provider": "Mistral",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 120.667,
+    "candidates_tested": 368,
+    "mean_support": 2897.0,
+    "mean_confidence": 0.963,
+    "execution_time": 55.693,
+    "validation_rate": 0.328,
+    "execution_time_stdev": 2.822
+  },
+  "runs": [
+    {
+      "nb_pfds": 118,
+      "execution_time": 52.5,
+      "candidates_tested": 360,
+      "mean_support": 2852.5423728813557,
+      "mean_confidence": 0.9631152542372882,
+      "validation_rate": 0.328,
+      "discovered_pfds": [
+        {
+          "lhs": "Year__raw",
+          "rhs": "COUNTRY",
+          "support": 3321,
+          "confidence": 0.9964
+        },
+        {
+          "lhs": "Year__raw",
+          "rhs": "ACTIVE",
+          "support": 3321,
+          "confidence": 0.969
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "NAME",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "STATE",
+          "support": 3499,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CREATED_DATE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8988
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9251
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9732
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9085
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9617
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9723
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9328
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8516
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.8888
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9071
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9734
+        },
+        {
+          "lhs": "ADDRESS_1__last_token",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "ADDRESS_1__last_token",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9751
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8948
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9043
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9934
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9854
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8874
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9152
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9958
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__last_token",
+          "rhs": "CITY",
+          "support": 721,
+          "confidence": 0.8599
+        },
+        {
+          "lhs": "ADDRESS_2__last_token",
+          "rhs": "STATE",
+          "support": 721,
+          "confidence": 0.8974
+        },
+        {
+          "lhs": "ADDRESS_2__last_token",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__last_token",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "CITY",
+          "support": 721,
+          "confidence": 0.9362
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "STATE",
+          "support": 721,
+          "confidence": 0.9459
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ZIP",
+          "support": 721,
+          "confidence": 0.8779
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "FAX",
+          "support": 430,
+          "confidence": 0.8884
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8959
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9763
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "COUNTRY__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "COUNTRY__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8536
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8688
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9966
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8805
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 0.8628
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9376
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9806
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9997
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9588
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9803
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8736
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9629
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9988
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8785
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9646
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9996
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9959
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "NAME",
+          "support": 2428,
+          "confidence": 0.888
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ADDRESS_2",
+          "support": 430,
+          "confidence": 0.9186
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.9794
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9872
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ZIP",
+          "support": 2428,
+          "confidence": 0.9522
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "PHONE",
+          "support": 2428,
+          "confidence": 0.93
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9745
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "COUNTRY",
+          "support": 1633,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "ACTIVE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ACTIVE__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 0.9966
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 122,
+      "execution_time": 57.85,
+      "candidates_tested": 372,
+      "mean_support": 2919.2295081967213,
+      "mean_confidence": 0.9632122950819672,
+      "validation_rate": 0.328,
+      "discovered_pfds": [
+        {
+          "lhs": "Year__raw",
+          "rhs": "COUNTRY",
+          "support": 3321,
+          "confidence": 0.9964
+        },
+        {
+          "lhs": "Year__raw",
+          "rhs": "ACTIVE",
+          "support": 3321,
+          "confidence": 0.969
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "NAME",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "STATE",
+          "support": 3499,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CREATED_DATE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8988
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9251
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9732
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9085
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9617
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9723
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9328
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8516
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.8888
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9071
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9734
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.8648
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9726
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.944
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.8902
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9734
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8948
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9043
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9934
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9854
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8874
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9152
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9958
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9958
+        },
+        {
+          "lhs": "ADDRESS_2__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "CITY",
+          "support": 721,
+          "confidence": 0.9362
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "STATE",
+          "support": 721,
+          "confidence": 0.9459
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ZIP",
+          "support": 721,
+          "confidence": 0.8779
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "FAX",
+          "support": 430,
+          "confidence": 0.8884
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8959
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9763
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "COUNTRY__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "COUNTRY__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8536
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8688
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9966
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8805
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 0.8628
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9376
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9806
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9997
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9588
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9803
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8736
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9629
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9988
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8785
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9646
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9996
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9959
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "NAME",
+          "support": 2428,
+          "confidence": 0.888
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ADDRESS_2",
+          "support": 430,
+          "confidence": 0.9186
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.9794
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9872
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ZIP",
+          "support": 2428,
+          "confidence": 0.9522
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "PHONE",
+          "support": 2428,
+          "confidence": 0.93
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9745
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "COUNTRY",
+          "support": 1633,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "ACTIVE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ACTIVE__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 0.9966
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 122,
+      "execution_time": 56.73,
+      "candidates_tested": 372,
+      "mean_support": 2919.2295081967213,
+      "mean_confidence": 0.9632122950819672,
+      "validation_rate": 0.328,
+      "discovered_pfds": [
+        {
+          "lhs": "Year__raw",
+          "rhs": "COUNTRY",
+          "support": 3321,
+          "confidence": 0.9964
+        },
+        {
+          "lhs": "Year__raw",
+          "rhs": "ACTIVE",
+          "support": 3321,
+          "confidence": 0.969
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "NAME",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "STATE",
+          "support": 3499,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "CREATED_DATE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "EMPLOYER_ID__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8988
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9251
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "NAME__first_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9732
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9085
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9617
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9723
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9328
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8516
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.8888
+        },
+        {
+          "lhs": "NAME__raw",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9071
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9734
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.8648
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9726
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.944
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.8902
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9734
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8948
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9043
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9934
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.9854
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "PHONE",
+          "support": 3498,
+          "confidence": 0.8874
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9152
+        },
+        {
+          "lhs": "ADDRESS_1__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9958
+        },
+        {
+          "lhs": "ADDRESS_2__first_token",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9958
+        },
+        {
+          "lhs": "ADDRESS_2__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "CITY",
+          "support": 721,
+          "confidence": 0.9362
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "STATE",
+          "support": 721,
+          "confidence": 0.9459
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ZIP",
+          "support": 721,
+          "confidence": 0.8779
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "FAX",
+          "support": 430,
+          "confidence": 0.8884
+        },
+        {
+          "lhs": "ADDRESS_2__raw",
+          "rhs": "ACTIVE",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "CITY__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        },
+        {
+          "lhs": "STATE__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3499,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8959
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9817
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9763
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__prefix_5",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9989
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9703
+        },
+        {
+          "lhs": "COUNTRY__raw",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "COUNTRY__uppercase",
+          "rhs": "ACTIVE",
+          "support": 3502,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8536
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8688
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "PHONE__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9966
+        },
+        {
+          "lhs": "PHONE__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9697
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "NAME",
+          "support": 3498,
+          "confidence": 0.8805
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_1",
+          "support": 3498,
+          "confidence": 0.8628
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ADDRESS_2",
+          "support": 721,
+          "confidence": 0.9376
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9806
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9997
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9588
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "ACTIVE",
+          "support": 3498,
+          "confidence": 0.9803
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8736
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9629
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9988
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.8785
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9646
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9996
+        },
+        {
+          "lhs": "FAX__prefix_4",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 0.9959
+        },
+        {
+          "lhs": "FAX__suffix_2",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9605
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "NAME",
+          "support": 2428,
+          "confidence": 0.888
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ADDRESS_2",
+          "support": 430,
+          "confidence": 0.9186
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.9794
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9872
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ZIP",
+          "support": 2428,
+          "confidence": 0.9522
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "COUNTRY",
+          "support": 2428,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "PHONE",
+          "support": 2428,
+          "confidence": 0.93
+        },
+        {
+          "lhs": "FAX__raw",
+          "rhs": "ACTIVE",
+          "support": 2428,
+          "confidence": 0.9745
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "COUNTRY",
+          "support": 1633,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "CREATED_DATE__raw",
+          "rhs": "ACTIVE",
+          "support": 1633,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "ACTIVE__raw",
+          "rhs": "COUNTRY",
+          "support": 3502,
+          "confidence": 0.9966
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

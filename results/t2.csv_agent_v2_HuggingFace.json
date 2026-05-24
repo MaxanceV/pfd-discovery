@@ -1,0 +1,402 @@
+{
+  "dataset": "t2.csv",
+  "workflow": "agent_v2",
+  "provider": "HuggingFace",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 6.667,
+    "candidates_tested": 15,
+    "mean_support": 3242.033,
+    "mean_confidence": 0.956,
+    "execution_time": 5.6,
+    "validation_rate": 0.432,
+    "execution_time_stdev": 0.937
+  },
+  "runs": [
+    {
+      "nb_pfds": 5,
+      "execution_time": 5.0,
+      "candidates_tested": 13,
+      "mean_support": 3498.6,
+      "mean_confidence": 0.95198,
+      "validation_rate": 0.385,
+      "discovered_pfds": [
+        {
+          "lhs": "NAME__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "CITY__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_4",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9014
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "NAME",
+          "transform": "lowercase",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "CITY",
+          "transform": "uppercase",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_1",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "suffix_2",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_2",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "suffix_3",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "first_token",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "last_token",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_3",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "suffix_4",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_4",
+          "rhs": "CITY"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 5,
+      "execution_time": 5.12,
+      "candidates_tested": 13,
+      "mean_support": 3498.6,
+      "mean_confidence": 0.95198,
+      "validation_rate": 0.385,
+      "discovered_pfds": [
+        {
+          "lhs": "NAME__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "CITY__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_4",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9014
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "NAME",
+          "transform": "lowercase",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "CITY",
+          "transform": "uppercase",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_1",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "suffix_2",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_2",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "suffix_3",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "first_token",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "last_token",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_3",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "suffix_4",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_4",
+          "rhs": "CITY"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 10,
+      "execution_time": 6.68,
+      "candidates_tested": 19,
+      "mean_support": 2728.9,
+      "mean_confidence": 0.96394,
+      "validation_rate": 0.526,
+      "discovered_pfds": [
+        {
+          "lhs": "NAME__lowercase",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.9743
+        },
+        {
+          "lhs": "CITY__uppercase",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "ADDRESS_1__suffix_2",
+          "rhs": "COUNTRY",
+          "support": 3498,
+          "confidence": 0.9969
+        },
+        {
+          "lhs": "ADDRESS_2__suffix_3",
+          "rhs": "STATE",
+          "support": 721,
+          "confidence": 0.853
+        },
+        {
+          "lhs": "ADDRESS_2__last_token",
+          "rhs": "COUNTRY",
+          "support": 721,
+          "confidence": 0.9986
+        },
+        {
+          "lhs": "PHONE__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.978
+        },
+        {
+          "lhs": "PHONE__last_token",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "FAX__first_token",
+          "rhs": "CITY",
+          "support": 2428,
+          "confidence": 0.979
+        },
+        {
+          "lhs": "FAX__last_token",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9872
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "NAME",
+          "transform": "lowercase",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "CITY",
+          "transform": "uppercase",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_1",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "suffix_2",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_2",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "suffix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "first_token",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "last_token",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "prefix_3",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "FAX",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "FAX",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "FAX",
+          "transform": "prefix_4",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "last_token",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "prefix_5",
+          "rhs": "ZIP"
+        }
+      ]
+    }
+  ]
+}

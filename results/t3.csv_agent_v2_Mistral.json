@@ -1,0 +1,394 @@
+{
+  "dataset": "t3.csv",
+  "workflow": "agent_v2",
+  "provider": "Mistral",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 7.333,
+    "candidates_tested": 13.667,
+    "mean_support": 1075.917,
+    "mean_confidence": 0.974,
+    "execution_time": 7.02,
+    "validation_rate": 0.546,
+    "execution_time_stdev": 0.215
+  },
+  "runs": [
+    {
+      "nb_pfds": 8,
+      "execution_time": 6.8,
+      "candidates_tested": 14,
+      "mean_support": 1075.875,
+      "mean_confidence": 0.9737375,
+      "validation_rate": 0.571,
+      "discovered_pfds": [
+        {
+          "lhs": "Location__first_token",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.8606
+        },
+        {
+          "lhs": "Location__last_token",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Location__suffix_2",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__uppercase",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Licensee Number__prefix_4",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9693
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "City__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Location",
+          "transform": "prefix_1",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "first_token",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "last_token",
+          "rhs": "Zip"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "suffix_2",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "suffix_3",
+          "rhs": "Zip"
+        },
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "uppercase",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "prefix_2",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "prefix_1",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "Zip",
+          "transform": "raw",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "Licensee Number",
+          "transform": "prefix_4",
+          "rhs": "Channel Type"
+        },
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "first_token",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "raw",
+          "rhs": "Zip"
+        },
+        {
+          "lhs_col": "City",
+          "transform": "raw",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "last_token",
+          "rhs": "City"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 8,
+      "execution_time": 7.03,
+      "candidates_tested": 12,
+      "mean_support": 1075.875,
+      "mean_confidence": 0.9565375,
+      "validation_rate": 0.667,
+      "discovered_pfds": [
+        {
+          "lhs": "Account Name__uppercase",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "Location__prefix_5",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.8894
+        },
+        {
+          "lhs": "Location__last_token",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9935
+        },
+        {
+          "lhs": "Licensee Name__lowercase",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Location__first_token",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.8606
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Licensee Number__prefix_3",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9637
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "first_token",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "uppercase",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "prefix_5",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "suffix_3",
+          "rhs": "Zip"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "last_token",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "prefix_1",
+          "rhs": "Licensee Number"
+        },
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "lowercase",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "first_token",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Zip",
+          "transform": "raw",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "raw",
+          "rhs": "Location"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "prefix_2",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Licensee Number",
+          "transform": "prefix_3",
+          "rhs": "Channel Type"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 6,
+      "execution_time": 7.23,
+      "candidates_tested": 15,
+      "mean_support": 1076.0,
+      "mean_confidence": 0.9905333333333334,
+      "validation_rate": 0.4,
+      "discovered_pfds": [
+        {
+          "lhs": "Account Name__lowercase",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "Location__last_token",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Licensee Name__uppercase",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "City__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9981
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "first_token",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "lowercase",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "prefix_1",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "last_token",
+          "rhs": "Zip"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "suffix_3",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "prefix_1",
+          "rhs": "Location"
+        },
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "uppercase",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "first_token",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Zip",
+          "transform": "raw",
+          "rhs": "City"
+        },
+        {
+          "lhs_col": "City",
+          "transform": "raw",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "prefix_2",
+          "rhs": "Location"
+        },
+        {
+          "lhs_col": "Licensee Name",
+          "transform": "domain",
+          "rhs": "Account Name"
+        },
+        {
+          "lhs_col": "Account Name",
+          "transform": "suffix_2",
+          "rhs": "Licensee Name"
+        },
+        {
+          "lhs_col": "Location",
+          "transform": "prefix_3",
+          "rhs": "Street"
+        },
+        {
+          "lhs_col": "Street",
+          "transform": "raw",
+          "rhs": "Location"
+        }
+      ]
+    }
+  ]
+}

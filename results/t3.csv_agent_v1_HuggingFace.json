@@ -1,0 +1,1062 @@
+{
+  "dataset": "t3.csv",
+  "workflow": "agent_v1",
+  "provider": "HuggingFace",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 56,
+    "candidates_tested": 136,
+    "mean_support": 1075.839,
+    "mean_confidence": 0.99,
+    "execution_time": 26.283,
+    "validation_rate": 0.412,
+    "execution_time_stdev": 0.19
+  },
+  "runs": [
+    {
+      "nb_pfds": 56,
+      "execution_time": 26.47,
+      "candidates_tested": 136,
+      "mean_support": 1075.8392857142858,
+      "mean_confidence": 0.9895821428571429,
+      "validation_rate": 0.412,
+      "discovered_pfds": [
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9451
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9126
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "City__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "City__uppercase",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_3",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Channel Type__raw",
+          "rhs": "State",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.987
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9861
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9972
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.8634
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9609
+        },
+        {
+          "lhs": "Account Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9898
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 56,
+      "execution_time": 26.09,
+      "candidates_tested": 136,
+      "mean_support": 1075.8392857142858,
+      "mean_confidence": 0.9895821428571429,
+      "validation_rate": 0.412,
+      "discovered_pfds": [
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9451
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9126
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "City__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "City__uppercase",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_3",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Channel Type__raw",
+          "rhs": "State",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.987
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9861
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9972
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.8634
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9609
+        },
+        {
+          "lhs": "Account Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9898
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 56,
+      "execution_time": 26.29,
+      "candidates_tested": 136,
+      "mean_support": 1075.8392857142858,
+      "mean_confidence": 0.9895821428571429,
+      "validation_rate": 0.412,
+      "discovered_pfds": [
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9963
+        },
+        {
+          "lhs": "Licensee Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9954
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9451
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Name__last_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9126
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9879
+        },
+        {
+          "lhs": "Street__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9981
+        },
+        {
+          "lhs": "City__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "City__uppercase",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_3",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__prefix_5",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9656
+        },
+        {
+          "lhs": "Zip__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Licensee Number__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Channel Type__raw",
+          "rhs": "State",
+          "support": 1075,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9851
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.987
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 0.9861
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9972
+        },
+        {
+          "lhs": "Account Name__raw",
+          "rhs": "Location",
+          "support": 1076,
+          "confidence": 0.9842
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 0.8634
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Account Name__first_token",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9609
+        },
+        {
+          "lhs": "Account Name__last_token",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Name",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Street",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "City",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "State",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Zip",
+          "support": 1076,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Licensee Number",
+          "support": 1076,
+          "confidence": 0.9898
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Channel Type",
+          "support": 1075,
+          "confidence": 0.9991
+        },
+        {
+          "lhs": "Location__raw",
+          "rhs": "Account Name",
+          "support": 1076,
+          "confidence": 0.9898
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

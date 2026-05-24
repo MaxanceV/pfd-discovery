@@ -1,0 +1,127 @@
+{
+  "dataset": "US_Phone_Code.csv",
+  "workflow": "agent_v1",
+  "provider": "Mistral",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 1,
+    "nb_pfds": 16,
+    "candidates_tested": 16,
+    "mean_support": 51.0,
+    "mean_confidence": 0.988,
+    "execution_time": 3.94,
+    "validation_rate": 1.0
+  },
+  "runs": [
+    {
+      "nb_pfds": 16,
+      "execution_time": 3.94,
+      "candidates_tested": 16,
+      "mean_support": 51.0,
+      "mean_confidence": 0.98775,
+      "validation_rate": 1.0,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

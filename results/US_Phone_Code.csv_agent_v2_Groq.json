@@ -1,0 +1,251 @@
+{
+  "dataset": "US_Phone_Code.csv",
+  "workflow": "agent_v2",
+  "provider": "Groq",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 4.667,
+    "candidates_tested": 7.333,
+    "mean_support": 51.0,
+    "mean_confidence": 0.965,
+    "execution_time": 0.81,
+    "validation_rate": 0.642,
+    "execution_time_stdev": 0.217
+  },
+  "runs": [
+    {
+      "nb_pfds": 3,
+      "execution_time": 0.92,
+      "candidates_tested": 8,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9673333333333334,
+      "validation_rate": 0.375,
+      "discovered_pfds": [
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "State",
+          "transform": "prefix_2",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_3",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "first_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_1",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_2",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "prefix_1",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_2",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "suffix_2",
+          "rhs": "Short"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 3,
+      "execution_time": 0.56,
+      "candidates_tested": 4,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9477333333333333,
+      "validation_rate": 0.75,
+      "discovered_pfds": [
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9412
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "State",
+          "transform": "first_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_2",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "last_token",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_1",
+          "rhs": "Code"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 8,
+      "execution_time": 0.95,
+      "candidates_tested": 10,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9804,
+      "validation_rate": 0.8,
+      "discovered_pfds": [
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "State",
+          "transform": "uppercase",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "uppercase",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_2",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_3",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "first_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "first_token",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "last_token",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "suffix_3",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_1",
+          "rhs": "Code"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_1",
+          "rhs": "Short"
+        }
+      ]
+    }
+  ]
+}

@@ -2,17 +2,19 @@
 Métriques d'évaluation pour la découverte de PFDs.
 
 Ce module est entièrement générique : il ne connaît aucun dataset, aucun nom
-de colonne, aucun fichier CSV. Toute connaissance spécifique aux données est
-externalisée dans data/ground_truth.json, chargé par le runner.
+de colonne, aucun fichier CSV.
 
 Fonctions exposées :
-    load_ground_truth(path)          — charge le fichier JSON de vérité terrain
-    classify_pfd_heuristic(pfd, df)  — classe une PFD trouvée comme meaningful/spurious
     extract_basic_metrics(result)    — métriques techniques d'un workflow
-    compute_recall(discovered, gt)   — rappel vs vérité terrain
-    compute_precision_approx(discovered, df) — précision approximative par heuristique
     aggregate_runs(runs)             — agrège plusieurs runs (moyenne, écart-type)
     build_comparison_table(results)  — tableau comparatif (dataset × workflow × llm)
+
+Fonctions pour le notebook de légitimité (utilisées en post-traitement) :
+    load_ground_truth(path)                  — charge le fichier JSON de vérité terrain
+    build_validated_gt(df, hypotheses, ...)  — valide empiriquement les hypothèses GT
+    classify_pfd_heuristic(pfd, df)          — classe une PFD comme meaningful/spurious
+    compute_recall(discovered, gt)           — rappel vs vérité terrain
+    compute_precision_approx(discovered, df) — précision approximative par heuristique
 """
 
 import json
@@ -21,6 +23,9 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import pandas as pd
+
+from src.patterns.extractor import enrich_dataframe
+from src.patterns.pfd_validator import compute_support_confidence
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -43,6 +48,70 @@ def load_ground_truth(path: str) -> Dict[str, List[Dict]]:
     # Supprimer la clé de documentation si présente
     raw.pop("_comment", None)
     return raw
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Validation empirique de la vérité terrain
+# ─────────────────────────────────────────────────────────────────────────────
+
+def build_validated_gt(df, hypotheses, gt_min_confidence=0.85, gt_min_support=50):
+    """
+    Vérifie empiriquement chaque hypothèse de ground_truth.json sur le DataFrame.
+
+    Une hypothèse est validée si sa confidence et son support mesurés sur les
+    données réelles dépassent les seuils gt_min_*. Seules les hypothèses validées
+    servent au calcul du rappel.
+
+    Returns:
+        (validated, log)
+          validated : liste de dicts avec 'lhs' au format "col__transform"
+          log       : toutes les hypothèses + leur résultat empirique
+    """
+    effective_min_support = min(gt_min_support, 10) if len(df) < 100 else gt_min_support
+
+    validated = []
+    log = []
+
+    for hyp in hypotheses:
+        lhs_col      = hyp["lhs_col"]
+        transform    = hyp["transform"]
+        rhs_col      = hyp["rhs_col"]
+        classif      = hyp.get("classification", "meaningful")
+        lhs_enriched = lhs_col + "__" + transform
+
+        if lhs_col not in df.columns or rhs_col not in df.columns:
+            log.append({**hyp, "lhs": lhs_enriched, "rhs": rhs_col,
+                        "confidence": None, "support": None,
+                        "kept": False, "error": "colonne absente du dataset"})
+            continue
+
+        try:
+            df_e    = enrich_dataframe(df, lhs_col, [transform])
+            metrics = compute_support_confidence(df_e, lhs_enriched, rhs_col)
+            conf    = metrics["confidence"]
+            supp    = metrics["support"]
+        except Exception as exc:
+            log.append({**hyp, "lhs": lhs_enriched, "rhs": rhs_col,
+                        "confidence": None, "support": None,
+                        "kept": False, "error": str(exc)})
+            continue
+
+        kept = (conf >= gt_min_confidence and supp >= effective_min_support)
+
+        log.append({**hyp, "lhs": lhs_enriched, "rhs": rhs_col,
+                    "confidence": conf, "support": supp, "kept": kept, "error": ""})
+
+        if kept:
+            validated.append({
+                "lhs":            lhs_enriched,
+                "rhs":            rhs_col,
+                "classification": classif,
+                "justification":  hyp.get("justification", ""),
+                "confidence":     conf,
+                "support":        supp,
+            })
+
+    return validated, log
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -119,12 +188,16 @@ def extract_basic_metrics(workflow_result: Dict) -> Dict[str, Any]:
     supports    = [p.get("support", 0)    for p in pfds]
     confidences = [p.get("confidence", 0) for p in pfds]
 
+    n_tested = int(workflow_result.get("total_candidates_tested", 0) or 0)
+    validation_rate = round(len(pfds) / n_tested, 3) if n_tested > 0 else None
+
     return {
         "nb_pfds":           len(pfds),
         "execution_time":    float(workflow_result.get("execution_time_seconds", 0) or 0),
-        "candidates_tested": int(workflow_result.get("total_candidates_tested", 0) or 0),
+        "candidates_tested": n_tested,
         "mean_support":      sum(supports)     / len(supports)     if supports     else 0.0,
         "mean_confidence":   sum(confidences)  / len(confidences)  if confidences  else 0.0,
+        "validation_rate":   validation_rate,
     }
 
 
@@ -256,21 +329,15 @@ def aggregate_runs(runs: List[Dict]) -> Dict[str, Any]:
                        déterministes (volume, temps).
 
     Métriques retenues dans le tableau final :
-        nb_pfds, candidates_tested  — volume de la découverte
+        nb_pfds, candidates_tested    — volume de la découverte
         mean_support, mean_confidence — qualité statistique des PFDs
-        execution_time              — coût computationnel
-        recall_meaningful           — rappel sur les règles non-triviales (métrique principale)
-        precision_approx            — précision heuristique
-
-    Note : recall (global) supprimé car recall_meaningful est plus informatif.
+        execution_time                — coût computationnel
+        execution_time_stdev          — variance du temps si n_runs > 1
     """
     if not runs:
         return {}
 
-    # Métriques déterministes : moyenne suffit (pas de variance attendue)
-    flat_keys = ["nb_pfds", "candidates_tested", "mean_support", "mean_confidence", "execution_time"]
-    # Métriques qualité : variance pertinente pour les workflows agentiques
-    var_keys   = ["recall_meaningful", "precision_approx"]
+    flat_keys = ["nb_pfds", "candidates_tested", "mean_support", "mean_confidence", "execution_time", "validation_rate"]
 
     # Cas n_runs == 1 : valeurs à plat, pas de suffixes
     if len(runs) == 1:
@@ -282,25 +349,19 @@ def aggregate_runs(runs: List[Dict]) -> Dict[str, Any]:
             "mean_support":      round(r.get("mean_support", 0), 2),
             "mean_confidence":   round(r.get("mean_confidence", 0), 3),
             "execution_time":    round(r.get("execution_time", 0), 2),
-            "recall_meaningful": round(r.get("recall_meaningful", 0), 3),
-            "precision_approx":  round(r.get("precision_approx", 0), 3),
+            "validation_rate":   r.get("validation_rate"),
         }
 
-    # Cas n_runs > 1 : moyenne pour tout + écart-type pour les métriques qualité
+    # Cas n_runs > 1 : moyenne pour tout + écart-type pour execution_time
     agg = {"nb_runs": len(runs)}
 
     for key in flat_keys:
         values = [r[key] for r in runs if r.get(key) is not None]
         agg[key] = round(statistics.mean(values), 3) if values else None
 
-    for key in var_keys:
-        values = [r[key] for r in runs if r.get(key) is not None]
-        if values:
-            agg[key]                  = round(statistics.mean(values), 3)
-            agg[f"{key}_stdev"]       = round(statistics.stdev(values), 3) if len(values) > 1 else 0.0
-        else:
-            agg[key]                  = None
-            agg[f"{key}_stdev"]       = None
+    et_values = [r["execution_time"] for r in runs if r.get("execution_time") is not None]
+    if len(et_values) > 1:
+        agg["execution_time_stdev"] = round(statistics.stdev(et_values), 3)
 
     return agg
 
@@ -340,14 +401,12 @@ def build_comparison_table(aggregated_results: Dict[Tuple[str, str, str], Dict])
 
     df = df.sort_values(["dataset", "workflow", "llm"]).reset_index(drop=True)
 
-    # Forcer l'ordre des colonnes — les colonnes _stdev n'existent que si n_runs > 1
     base_cols = [
         "dataset", "workflow", "llm", "nb_runs",
         "nb_pfds", "candidates_tested",
         "mean_support", "mean_confidence",
-        "execution_time",
-        "recall_meaningful", "precision_approx",
+        "execution_time", "validation_rate",
     ]
-    stdev_cols = [c for c in ["recall_meaningful_stdev", "precision_approx_stdev"] if c in df.columns]
-    ordered = [c for c in base_cols + stdev_cols if c in df.columns]
+    extra_cols = [c for c in ["execution_time_stdev"] if c in df.columns]
+    ordered = [c for c in base_cols + extra_cols if c in df.columns]
     return df[ordered]

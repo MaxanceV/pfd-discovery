@@ -8,9 +8,7 @@ Teste les mêmes workflows avec différents modèles et compare :
   - Capacité à identifier les patterns métier pertinents
 """
 
-import os
 import pandas as pd
-import json
 import time
 from typing import Dict, List, Any
 from src.agent.llm_provider import LLMFactory, LLMProvider
@@ -351,57 +349,3 @@ def full_comparison(df: pd.DataFrame,
     }
 
 
-def export_results(results: Dict[str, Any], output_file: str = "llm_comparison_results.json"):
-    """Exporte et fusionne les résultats de comparaison en JSON sans écraser l'historique."""
-    
-    # 1. Charger les données existantes si le fichier existe
-    existing_data = {}
-    if os.path.exists(output_file):
-        try:
-            with open(output_file, 'r', encoding='utf-8') as f:
-                existing_data = json.load(f)
-        except json.JSONDecodeError:
-            pass # Si le fichier est corrompu ou vide, on repart de zéro
-
-    # 2. Si pas de données existantes, on prend les nouveaux résultats tels quels
-    if not existing_data:
-        merged_data = results
-    else:
-        merged_data = existing_data
-        
-        # Fusion des résultats de profiling
-        if "profiling_results" in results and "profiles" in results["profiling_results"]:
-            if "profiling_results" not in merged_data:
-                merged_data["profiling_results"] = {"profiles": {}}
-                
-            for provider, data in results["profiling_results"]["profiles"].items():
-                # On écrase ou on ajoute le provider spécifiquement
-                merged_data["profiling_results"]["profiles"][provider] = data
-
-        # Fusion des résultats de sélection
-        if "selection_results" in results and "selections" in results["selection_results"]:
-            if "selection_results" not in merged_data:
-                merged_data["selection_results"] = {"selections": {}}
-                
-            for provider, data in results["selection_results"]["selections"].items():
-                merged_data["selection_results"]["selections"][provider] = data
-                
-        # Mise à jour de la liste globale des providers testés au total
-        if "providers_tested" in results:
-            existing_providers = set(merged_data.get("providers_tested", []))
-            existing_providers.update(results["providers_tested"])
-            merged_data["providers_tested"] = list(existing_providers)
-
-    # 3. Sauvegarder le JSON fusionné
-    # Créer le dossier parent si besoin (ex: 'results/')
-    os.makedirs(os.path.dirname(output_file) or '.', exist_ok=True)
-    
-    with open(output_file, 'w', encoding='utf-8') as f:
-        def default_handler(obj):
-            if hasattr(obj, '__dict__'):
-                return obj.__dict__
-            return str(obj)
-        
-        json.dump(merged_data, f, indent=2, ensure_ascii=False, default=default_handler)
-    
-    print(f"\n💾 Résultats mis à jour et fusionnés dans : {output_file}")

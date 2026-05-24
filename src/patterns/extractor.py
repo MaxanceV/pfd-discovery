@@ -17,14 +17,25 @@ Transformations disponibles :
 """
 
 import pandas as pd
+import numpy as np
 import re
 
 
 def _null_safe(func):
-    """Retourne "" si la valeur est NaN/None, sinon appelle func normalement."""
+    """
+    Retourne np.nan si la valeur est NaN/None, sinon appelle func normalement.
+
+    Choix LHS : on retourne np.nan (et non "") pour que pandas groupby exclue
+    naturellement les lignes où le LHS source est null (comportement par défaut
+    de groupby avec dropna=True). Regrouper les nulls sous "" créerait un faux
+    groupe homogène qui produirait des dépendances artificielles.
+
+    Note RHS : les nulls du RHS sont gérés séparément dans pfd_validator.py
+    (via dropna() sur les valeurs du groupe). Voir le commentaire là-bas.
+    """
     def wrapper(value, *args, **kwargs):
         if pd.isna(value):
-            return ""
+            return np.nan
         return func(value, *args, **kwargs)
     return wrapper
 
@@ -86,7 +97,7 @@ def extract_domain(email) -> str:
     """
     s = str(email)
     if '@' not in s:
-        return ""
+        return np.nan
     return s.split('@')[-1].lower().strip()
 
 
@@ -94,7 +105,7 @@ def extract_domain(email) -> str:
 # Cle    : nom de la transformation (utilise pour nommer les colonnes derivees)
 # Valeur : lambda appliquee sur chaque valeur de la colonne
 TRANSFORMATIONS = {
-    "raw":        lambda v: str(v) if pd.notna(v) else "",
+    "raw":        lambda v: str(v) if pd.notna(v) else np.nan,
     "prefix_1":   lambda v: extract_prefix(v, 1),
     "prefix_2":   lambda v: extract_prefix(v, 2),
     "prefix_3":   lambda v: extract_prefix(v, 3),
@@ -106,8 +117,8 @@ TRANSFORMATIONS = {
     "first_token": lambda v: extract_first_token(v),
     "last_token":  lambda v: extract_last_token(v),
     "domain":      lambda v: extract_domain(v),
-    "uppercase":   lambda v: str(v).upper() if pd.notna(v) else "",
-    "lowercase":   lambda v: str(v).lower() if pd.notna(v) else "",
+    "uppercase":   lambda v: str(v).upper() if pd.notna(v) else np.nan,
+    "lowercase":   lambda v: str(v).lower() if pd.notna(v) else np.nan,
 }
 
 

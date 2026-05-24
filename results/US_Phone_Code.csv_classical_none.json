@@ -1,0 +1,1170 @@
+{
+  "dataset": "US_Phone_Code.csv",
+  "workflow": "classical",
+  "provider": "none",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 62,
+    "candidates_tested": 84,
+    "mean_support": 51.0,
+    "mean_confidence": 0.981,
+    "execution_time": 1.717,
+    "validation_rate": 0.738,
+    "execution_time_stdev": 0.031
+  },
+  "runs": [
+    {
+      "nb_pfds": 62,
+      "execution_time": 1.75,
+      "candidates_tested": 84,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9810258064516129,
+      "validation_rate": 0.738,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 62,
+      "execution_time": 1.71,
+      "candidates_tested": 84,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9810258064516129,
+      "validation_rate": 0.738,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 62,
+      "execution_time": 1.69,
+      "candidates_tested": 84,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9810258064516129,
+      "validation_rate": 0.738,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8824
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9608
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.8627
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__prefix_5",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_3",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__suffix_4",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__first_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__last_token",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__suffix_4",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__lowercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

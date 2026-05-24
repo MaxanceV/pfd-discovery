@@ -26,7 +26,13 @@ def compute_support_confidence(df: pd.DataFrame,
     group_details = []
     
     for lhs_val, group in groups:
-        # On ignore les groupes vides ou composés uniquement de NaN
+        # Choix RHS : on exclut les valeurs nulles du RHS avant de calculer
+        # support et confidence. La dépendance est donc mesurée uniquement sur
+        # les tuples où les deux côtés sont connus (tuples complets).
+        # Conséquence connue : si le RHS a beaucoup de nulls, la confidence est
+        # artificiellement gonflée car le dénominateur est réduit. Ce biais est
+        # accepté — c'est la pratique courante dans les outils de data quality
+        # ("quand on a les deux valeurs, sont-elles cohérentes ?").
         group = group.dropna()
         if group.empty:
             continue

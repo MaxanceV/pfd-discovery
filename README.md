@@ -233,12 +233,17 @@ git merge main
 - Seuils par défaut suggérés : `support >= 10`, `confidence >= 0.85`
 - En cas de conflit Git : ne pas forcer le merge, consulter l'équipe
 
-## Lancer le code 
-# classique seul
-python -m src.experiments.runner --workflows classical
+## Lancer les expériences
 
-# Avec agent_v1 et agent_v2
-python -m src.experiments.runner --workflows classical agent_v1 agent_v2
+### Commandes
 
-# On peut préciser les providers si on veut pas lancer avec tous
-python -m src.experiments.runner --workflows classical agent_v1 --providers groq
+| Commande | Description |
+|---|---|
+| `python -m src.experiments.runner` | Workflow classique sur tous les datasets |
+| `python -m src.experiments.runner --datasets t1.csv` | Workflow classique sur un dataset |
+| `python -m src.experiments.runner --workflows classical agent_v1 agent_v2` | Tous les workflows, providers auto-détectés |
+| `python -m src.experiments.runner --workflows agent_v1 agent_v2 --providers claude mistral` | Workflows agentiques avec providers spécifiques |
+| `python -m src.experiments.runner --workflows agent_v1 --runs 3` | Plusieurs runs pour mesurer la variance |
+| `python -m src.experiments.runner --min-support 20 --min-confidence 0.9` | Seuils personnalisés |
+
+Les résultats sont sauvegardés dans `results/` : un fichier JSON par combinaison (dataset × workflow × provider) et un tableau comparatif `comparison_table.csv`.

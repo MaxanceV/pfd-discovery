@@ -1,0 +1,306 @@
+{
+  "dataset": "US_Phone_Code.csv",
+  "workflow": "agent_v1",
+  "provider": "HuggingFace",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 14,
+    "candidates_tested": 14,
+    "mean_support": 51.0,
+    "mean_confidence": 1.0,
+    "execution_time": 2.033,
+    "validation_rate": 1.0,
+    "execution_time_stdev": 0.277
+  },
+  "runs": [
+    {
+      "nb_pfds": 14,
+      "execution_time": 1.96,
+      "candidates_tested": 14,
+      "mean_support": 51.0,
+      "mean_confidence": 1.0,
+      "validation_rate": 1.0,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 14,
+      "execution_time": 1.8,
+      "candidates_tested": 14,
+      "mean_support": 51.0,
+      "mean_confidence": 1.0,
+      "validation_rate": 1.0,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 14,
+      "execution_time": 2.34,
+      "candidates_tested": 14,
+      "mean_support": 51.0,
+      "mean_confidence": 1.0,
+      "validation_rate": 1.0,
+      "discovered_pfds": [
+        {
+          "lhs": "State__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__raw",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Short__uppercase",
+          "rhs": "Code",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_5",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__raw",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

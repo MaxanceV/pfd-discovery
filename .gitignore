@@ -12,9 +12,6 @@ venv/
 .venv/
 env/
 
-# Résultats générés
-results/
-
 # OS
 .DS_Store
 **/.DS_Store

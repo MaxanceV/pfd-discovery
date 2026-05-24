@@ -1,0 +1,3348 @@
+{
+  "dataset": "t1.csv",
+  "workflow": "classical",
+  "provider": "none",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 183,
+    "candidates_tested": 994,
+    "mean_support": 7262.869,
+    "mean_confidence": 0.942,
+    "execution_time": 279.27,
+    "validation_rate": 0.184,
+    "execution_time_stdev": 28.935
+  },
+  "runs": [
+    {
+      "nb_pfds": 183,
+      "execution_time": 312.31,
+      "candidates_tested": 994,
+      "mean_support": 7262.868852459016,
+      "mean_confidence": 0.941946994535519,
+      "validation_rate": 0.184,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Full Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9059
+        },
+        {
+          "lhs": "Full Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9146
+        },
+        {
+          "lhs": "Full Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9404
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9532
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8599
+        },
+        {
+          "lhs": "Full Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.907
+        },
+        {
+          "lhs": "Full Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.911
+        },
+        {
+          "lhs": "Full Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9163
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9599
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8837
+        },
+        {
+          "lhs": "Full Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9177
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Gender__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9941
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9915
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Division__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9202
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9241
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.939
+        },
+        {
+          "lhs": "Division__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9092
+        },
+        {
+          "lhs": "Division__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9108
+        },
+        {
+          "lhs": "Division__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9118
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9129
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9072
+        },
+        {
+          "lhs": "Position Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9534
+        },
+        {
+          "lhs": "Position Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9235
+        },
+        {
+          "lhs": "Position Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9595
+        },
+        {
+          "lhs": "Position Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9623
+        },
+        {
+          "lhs": "Position Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "Position Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9244
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.8819
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9121
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9386
+        },
+        {
+          "lhs": "Underfilled Job Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Date First Hired__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9081
+        },
+        {
+          "lhs": "Date First Hired__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9056
+        },
+        {
+          "lhs": "Date First Hired__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 183,
+      "execution_time": 267.05,
+      "candidates_tested": 994,
+      "mean_support": 7262.868852459016,
+      "mean_confidence": 0.941946994535519,
+      "validation_rate": 0.184,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Full Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9059
+        },
+        {
+          "lhs": "Full Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9146
+        },
+        {
+          "lhs": "Full Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9404
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9532
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8599
+        },
+        {
+          "lhs": "Full Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.907
+        },
+        {
+          "lhs": "Full Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.911
+        },
+        {
+          "lhs": "Full Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9163
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9599
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8837
+        },
+        {
+          "lhs": "Full Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9177
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Gender__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9941
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9915
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Division__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9202
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9241
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.939
+        },
+        {
+          "lhs": "Division__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9092
+        },
+        {
+          "lhs": "Division__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9108
+        },
+        {
+          "lhs": "Division__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9118
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9129
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9072
+        },
+        {
+          "lhs": "Position Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9534
+        },
+        {
+          "lhs": "Position Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9235
+        },
+        {
+          "lhs": "Position Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9595
+        },
+        {
+          "lhs": "Position Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9623
+        },
+        {
+          "lhs": "Position Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "Position Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9244
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.8819
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9121
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9386
+        },
+        {
+          "lhs": "Underfilled Job Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Date First Hired__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9081
+        },
+        {
+          "lhs": "Date First Hired__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9056
+        },
+        {
+          "lhs": "Date First Hired__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        }
+      ],
+      "candidates_proposed": null
+    },
+    {
+      "nb_pfds": 183,
+      "execution_time": 258.45,
+      "candidates_tested": 994,
+      "mean_support": 7262.868852459016,
+      "mean_confidence": 0.941946994535519,
+      "validation_rate": 0.184,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__raw",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Full Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9059
+        },
+        {
+          "lhs": "Full Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9146
+        },
+        {
+          "lhs": "Full Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9404
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9532
+        },
+        {
+          "lhs": "Full Name__prefix_5",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8599
+        },
+        {
+          "lhs": "Full Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.907
+        },
+        {
+          "lhs": "Full Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.911
+        },
+        {
+          "lhs": "Full Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9163
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9599
+        },
+        {
+          "lhs": "Full Name__first_token",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 0.8837
+        },
+        {
+          "lhs": "Full Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9177
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Gender",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9974
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Division",
+          "support": 9101,
+          "confidence": 0.9973
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Position Title",
+          "support": 9101,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Date First Hired",
+          "support": 9101,
+          "confidence": 0.9993
+        },
+        {
+          "lhs": "Gender__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Gender__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9941
+        },
+        {
+          "lhs": "Department__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9915
+        },
+        {
+          "lhs": "Department__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Department Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Department Name__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9054
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Division__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9202
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9062
+        },
+        {
+          "lhs": "Division__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9241
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9265
+        },
+        {
+          "lhs": "Division__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9325
+        },
+        {
+          "lhs": "Division__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.939
+        },
+        {
+          "lhs": "Division__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9092
+        },
+        {
+          "lhs": "Division__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9108
+        },
+        {
+          "lhs": "Division__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9118
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.9392
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Division__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9129
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.988
+        },
+        {
+          "lhs": "Division__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9485
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9072
+        },
+        {
+          "lhs": "Position Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9534
+        },
+        {
+          "lhs": "Position Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9554
+        },
+        {
+          "lhs": "Position Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9235
+        },
+        {
+          "lhs": "Position Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9595
+        },
+        {
+          "lhs": "Position Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9623
+        },
+        {
+          "lhs": "Position Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.958
+        },
+        {
+          "lhs": "Position Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9244
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 0.8523
+        },
+        {
+          "lhs": "Position Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.974
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__raw",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9011
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_2",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.8819
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9267
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_3",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9121
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_4",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9286
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__prefix_5",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9176
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9295
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9386
+        },
+        {
+          "lhs": "Underfilled Job Title__last_token",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__uppercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Department Name",
+          "support": 1092,
+          "confidence": 0.9478
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Assignment Category",
+          "support": 1092,
+          "confidence": 0.9945
+        },
+        {
+          "lhs": "Underfilled Job Title__lowercase",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9808
+        },
+        {
+          "lhs": "Date First Hired__raw",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__prefix_1",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__prefix_5",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9081
+        },
+        {
+          "lhs": "Date First Hired__suffix_2",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_3",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9052
+        },
+        {
+          "lhs": "Date First Hired__suffix_4",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9056
+        },
+        {
+          "lhs": "Date First Hired__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__last_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Date First Hired__lowercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        }
+      ],
+      "candidates_proposed": null
+    }
+  ]
+}

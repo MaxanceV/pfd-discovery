@@ -1,0 +1,118 @@
+{
+  "dataset": "US_Phone_Code.csv",
+  "workflow": "agent_v2",
+  "provider": "Mistral",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 1,
+    "nb_pfds": 6,
+    "candidates_tested": 10,
+    "mean_support": 51.0,
+    "mean_confidence": 0.974,
+    "execution_time": 4.28,
+    "validation_rate": 0.6
+  },
+  "runs": [
+    {
+      "nb_pfds": 6,
+      "execution_time": 4.28,
+      "candidates_tested": 10,
+      "mean_support": 51.0,
+      "mean_confidence": 0.9738666666666668,
+      "validation_rate": 0.6,
+      "discovered_pfds": [
+        {
+          "lhs": "State__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.902
+        },
+        {
+          "lhs": "Short__lowercase",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__prefix_3",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Code__first_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "State__last_token",
+          "rhs": "Short",
+          "support": 51,
+          "confidence": 0.9412
+        },
+        {
+          "lhs": "Short__suffix_2",
+          "rhs": "State",
+          "support": 51,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "State",
+          "transform": "prefix_2",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "first_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "lowercase",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_3",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "prefix_1",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "first_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "suffix_2",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Code",
+          "transform": "prefix_2",
+          "rhs": "State"
+        },
+        {
+          "lhs_col": "State",
+          "transform": "last_token",
+          "rhs": "Short"
+        },
+        {
+          "lhs_col": "Short",
+          "transform": "suffix_2",
+          "rhs": "State"
+        }
+      ]
+    }
+  ]
+}

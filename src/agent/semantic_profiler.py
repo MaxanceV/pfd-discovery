@@ -14,23 +14,64 @@ Support multi-LLM : Claude, OpenAI, Gemini, Ollama
 
 import pandas as pd
 import json
+import warnings
 from src.agent.llm_provider import LLMFactory, LLMProvider, get_default_provider
 from src.patterns.extractor import TRANSFORMATIONS
 
 
-def analyze_column_sample(df: pd.DataFrame, col: str, sample_size: int = 5) -> str:
+# ─────────────────────────────────────────────────────────────────────────────
+# Normalisation des noms de colonnes
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _normalize_col(col: str) -> str:
+    """
+    Normalise un nom de colonne pour le LLM : minuscules, espaces → underscores.
+    Exemples : "Full Name" → "full_name", "ADDRESS_2" → "address_2"
+    """
+    return col.lower().replace(" ", "_").strip()
+
+
+def _build_col_mapping(df: pd.DataFrame) -> dict:
+    """
+    Crée un mapping { nom_normalisé → nom_original }.
+
+    Le LLM reçoit les noms normalisés dans le prompt et répond avec eux.
+    Ce mapping permet de retrouver les noms exacts du DataFrame après
+    parsing de la réponse, avant validation.
+
+    Exemple : {"full_name": "Full Name", "address_2": "ADDRESS_2"}
+    """
+    mapping = {_normalize_col(col): col for col in df.columns}
+    if len(mapping) < len(df.columns):
+        warnings.warn(
+            "Deux colonnes ont le même nom normalisé — risque de collision "
+            "dans la correspondance LLM → DataFrame."
+        )
+    return mapping
+
+
+def analyze_column_sample(df: pd.DataFrame, col: str,
+                           sample_size: int = 5,
+                           display_name: str = None) -> str:
     """
     Crée un résumé d'une colonne pour l'analyse LLM.
     Montre des exemples, le type, la cardinalité, etc.
+
+    Args:
+        display_name : nom à afficher dans le prompt (normalisé).
+                       Si None, utilise le nom original de la colonne.
     """
+    if display_name is None:
+        display_name = col
+
     sample_values = df[col].dropna().unique()[:sample_size]
     sample_str = ", ".join(str(v) for v in sample_values)
-    
+
     unique_count = df[col].nunique()
     null_count = df[col].isna().sum()
-    
+
     return f"""
-Column: {col}
+Column: {display_name}
   Samples: [{sample_str}]
   Unique values: {unique_count}
   Nulls: {null_count}
@@ -58,18 +99,20 @@ def semantic_profile(df: pd.DataFrame, llm_provider: LLMProvider = None) -> dict
         }
     """
     
-    # Utiliser le provider par défaut si non fourni
     if llm_provider is None:
         llm_provider = get_default_provider()
-    
-    # Construire le contexte du DataFrame
+
+    # Normalisation : le LLM reçoit des noms sans espaces ni majuscules
+    col_mapping = _build_col_mapping(df)
+    reverse_mapping = {original: normalized for normalized, original in col_mapping.items()}
+
     columns_summary = "\n".join(
-        analyze_column_sample(df, col) for col in df.columns
+        analyze_column_sample(df, col, display_name=reverse_mapping[col])
+        for col in df.columns
     )
-    
-    # Transformations disponibles — source unique : extractor.TRANSFORMATIONS
+
     available_transforms = list(TRANSFORMATIONS.keys())
-    
+
     prompt = f"""Tu es un expert en qualité des données spécialisé dans les Pattern Functional Dependencies (PFDs).
 
 Voici un échantillon de dataset :
@@ -89,6 +132,9 @@ Considérations :
 - Pour les states/pays → raw, uppercase
 - Pour les numéros de téléphone → prefix_3, prefix_4, suffix_2
 
+IMPORTANT : utilise EXACTEMENT les noms de colonnes tels qu'ils apparaissent
+dans le résumé ci-dessus (pas de majuscules, pas d'espaces).
+
 Réponds en JSON strict (pas de markdown, pas d'explication avant) :
 {{
   "column_types": {{"column_name": "semantic_type", ...}},
@@ -97,21 +143,32 @@ Réponds en JSON strict (pas de markdown, pas d'explication avant) :
   "reasoning": "brief explanation"
 }}
 """
-    
-    # Appel au LLM provider
+
     response_text = llm_provider.call(prompt, max_tokens=2000)
-    
-    # Nettoyer la réponse si elle contient du markdown
+
     if response_text.startswith("```json"):
         response_text = response_text.replace("```json", "").replace("```", "").strip()
     elif response_text.startswith("```"):
         response_text = response_text.replace("```", "").strip()
-    
-    # Parser le JSON
+
     result = json.loads(response_text)
+
+    # Remapper les noms normalisés → noms originaux du DataFrame
+    result["column_types"] = {
+        col_mapping.get(k, k): v
+        for k, v in result.get("column_types", {}).items()
+    }
+    result["transformation_recommendations"] = {
+        col_mapping.get(k, k): v
+        for k, v in result.get("transformation_recommendations", {}).items()
+    }
+    result["promising_rhs_targets"] = [
+        col_mapping.get(t, t) for t in result.get("promising_rhs_targets", [])
+    ]
+
     result["llm_provider"] = llm_provider.provider_name
-    result["llm_model"] = llm_provider.model_name
-    
+    result["llm_model"]    = llm_provider.model_name
+
     return result
 
 
@@ -173,8 +230,13 @@ def suggest_candidate_pairs(df: pd.DataFrame, llm_provider: LLMProvider = None) 
     if llm_provider is None:
         llm_provider = get_default_provider()
 
+    # Normalisation : le LLM reçoit des noms sans espaces ni majuscules
+    col_mapping = _build_col_mapping(df)
+    reverse_mapping = {original: normalized for normalized, original in col_mapping.items()}
+
     columns_summary = "\n".join(
-        analyze_column_sample(df, col) for col in df.columns
+        analyze_column_sample(df, col, display_name=reverse_mapping[col])
+        for col in df.columns
     )
     available_transforms = list(TRANSFORMATIONS.keys())
 
@@ -193,21 +255,16 @@ Règles :
 - La colonne source et la colonne cible doivent être différentes
 - Évite les dépendances triviales (identifiant → autre colonne) ou sans sens métier
 - Propose entre 5 et 15 candidats
+- IMPORTANT : utilise EXACTEMENT les noms de colonnes tels qu'ils apparaissent
+  dans le résumé ci-dessus
 
-Exemples de bonnes dépendances :
-- {{"lhs_col": "ZIP", "transform": "prefix_3", "rhs": "CITY"}}  → les 3 premiers chiffres du code postal déterminent la ville
-- {{"lhs_col": "email", "transform": "domain", "rhs": "organization"}}  → le domaine email détermine l'organisation
-- {{"lhs_col": "full_name", "transform": "first_token", "rhs": "gender"}}  → le prénom est corrélé au genre
+Format de réponse — UNIQUEMENT le tableau JSON, rien d'autre :
+[{{"lhs_col": "nom_colonne_source", "transform": "nom_transformation", "rhs": "nom_colonne_cible"}}]
 
-IMPORTANT : réponds UNIQUEMENT avec le tableau JSON.
-Aucun texte avant, aucun texte après, aucune explication.
-Commence ta réponse par [ et termine par ]
-Format compact, sans retours à la ligne ni indentation :
-[{{"lhs_col": "col1", "transform": "t1", "rhs": "col2"}},{{"lhs_col": "col3", "transform": "t2", "rhs": "col4"}}]"""
+Commence ta réponse par [ et termine par ]"""
 
     response_text = llm_provider.call(prompt, max_tokens=2500)
 
-    # Extraire uniquement le tableau JSON (ignore tout texte avant/après)
     start = response_text.find("[")
     end   = response_text.rfind("]")
     if start == -1 or end == -1 or end <= start:
@@ -221,17 +278,22 @@ Format compact, sans retours à la ligne ni indentation :
         print(f"  {response_text[start:start + 300]}")
         return []
 
-    # Valider que chaque paire référence des colonnes et transformations existantes
-    valid_cols = set(df.columns)
+    # Remapper noms normalisés → noms originaux, puis valider
+    valid_cols      = set(df.columns)
     valid_transforms = set(TRANSFORMATIONS.keys())
     validated = []
+
     for p in raw_pairs:
         if not isinstance(p, dict):
             continue
-        lhs_col   = p.get("lhs_col", "")
+        # Remapping : nom normalisé proposé par le LLM → nom original du DataFrame
+        lhs_col   = col_mapping.get(p.get("lhs_col", ""), p.get("lhs_col", ""))
+        rhs       = col_mapping.get(p.get("rhs", ""),     p.get("rhs", ""))
         transform = p.get("transform", "")
-        rhs       = p.get("rhs", "")
+
         if lhs_col in valid_cols and transform in valid_transforms and rhs in valid_cols and lhs_col != rhs:
+            if transform == "domain" and not df[lhs_col].dropna().astype(str).str.contains('@').any():
+                continue
             validated.append({"lhs_col": lhs_col, "transform": transform, "rhs": rhs})
 
     rejected = len(raw_pairs) - len(validated)

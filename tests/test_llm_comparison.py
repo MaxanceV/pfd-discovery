@@ -17,7 +17,7 @@ sys.path.insert(0, str(project_root))
 
 import pandas as pd
 from src.agent.llm_provider import LLMFactory
-from src.agent.llm_comparison import full_comparison, export_results
+from src.agent.llm_comparison import full_comparison
 from src.agent.workflow import workflow_classical, workflow_agent_v1
 
 
@@ -120,9 +120,6 @@ def main_demo():
         print(f"🔍 Lancement des tests sur les providers configurés : {', '.join(detected_providers).upper()}")
         
         results = full_comparison(df, providers_list=detected_providers)
-        
-        # Exporter les résultats (fusion automatique avec l'historique)
-        export_results(results, output_file="results/llm_comparison.json")
         
     except Exception as e:
         print(f"❌ Erreur comparaison : {e}")

@@ -1,0 +1,312 @@
+{
+  "dataset": "t1.csv",
+  "workflow": "agent_v2",
+  "provider": "HuggingFace",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 3.333,
+    "candidates_tested": 13,
+    "mean_support": 5541.444,
+    "mean_confidence": 0.989,
+    "execution_time": 15.107,
+    "validation_rate": 0.245,
+    "execution_time_stdev": 1.084
+  },
+  "runs": [
+    {
+      "nb_pfds": 2,
+      "execution_time": 15.27,
+      "candidates_tested": 12,
+      "mean_support": 5096.5,
+      "mean_confidence": 1.0,
+      "validation_rate": 0.167,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Full Name",
+          "transform": "first_token",
+          "rhs": "Gender"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "last_token",
+          "rhs": "Position Title"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "prefix_1",
+          "rhs": "Department"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "uppercase",
+          "rhs": "Assignment Category"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "lowercase",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "first_token",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "last_token",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "prefix_1",
+          "rhs": "Department Name"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        },
+        {
+          "lhs_col": "Underfilled Job Title",
+          "transform": "prefix_1",
+          "rhs": "Department"
+        },
+        {
+          "lhs_col": "Underfilled Job Title",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 6,
+      "execution_time": 16.1,
+      "candidates_tested": 15,
+      "mean_support": 6431.333333333333,
+      "mean_confidence": 0.9671166666666666,
+      "validation_rate": 0.4,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Department__uppercase",
+          "rhs": "Department Name",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Division__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9275
+        },
+        {
+          "lhs": "Date First Hired__first_token",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 0.9366
+        },
+        {
+          "lhs": "Underfilled Job Title__first_token",
+          "rhs": "Position Title",
+          "support": 1092,
+          "confidence": 0.9386
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Full Name",
+          "transform": "first_token",
+          "rhs": "Gender"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "last_token",
+          "rhs": "Position Title"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "prefix_1",
+          "rhs": "Department"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "uppercase",
+          "rhs": "Assignment Category"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "lowercase",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Department",
+          "transform": "uppercase",
+          "rhs": "Department Name"
+        },
+        {
+          "lhs_col": "Division",
+          "transform": "first_token",
+          "rhs": "Assignment Category"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "last_token",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "first_token",
+          "rhs": "Assignment Category"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "last_token",
+          "rhs": "Position Title"
+        },
+        {
+          "lhs_col": "Department Name",
+          "transform": "prefix_1",
+          "rhs": "Department"
+        },
+        {
+          "lhs_col": "Department Name",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        },
+        {
+          "lhs_col": "Assignment Category",
+          "transform": "uppercase",
+          "rhs": "Position Title"
+        },
+        {
+          "lhs_col": "Underfilled Job Title",
+          "transform": "first_token",
+          "rhs": "Position Title"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 2,
+      "execution_time": 13.95,
+      "candidates_tested": 12,
+      "mean_support": 5096.5,
+      "mean_confidence": 1.0,
+      "validation_rate": 0.167,
+      "discovered_pfds": [
+        {
+          "lhs": "Full Name__uppercase",
+          "rhs": "Assignment Category",
+          "support": 9101,
+          "confidence": 1.0
+        },
+        {
+          "lhs": "Full Name__lowercase",
+          "rhs": "Underfilled Job Title",
+          "support": 1092,
+          "confidence": 1.0
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "Full Name",
+          "transform": "first_token",
+          "rhs": "Gender"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "last_token",
+          "rhs": "Position Title"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "prefix_1",
+          "rhs": "Department"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "suffix_2",
+          "rhs": "Division"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "uppercase",
+          "rhs": "Assignment Category"
+        },
+        {
+          "lhs_col": "Full Name",
+          "transform": "lowercase",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "first_token",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Position Title",
+          "transform": "last_token",
+          "rhs": "Underfilled Job Title"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "first_token",
+          "rhs": "Full Name"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "last_token",
+          "rhs": "Full Name"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "prefix_1",
+          "rhs": "Full Name"
+        },
+        {
+          "lhs_col": "Date First Hired",
+          "transform": "suffix_2",
+          "rhs": "Full Name"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "dataset": "t2.csv",
+  "workflow": "agent_v2",
+  "provider": "Mistral",
+  "params": {
+    "min_support": 10,
+    "min_confidence": 0.85
+  },
+  "aggregated": {
+    "nb_runs": 3,
+    "nb_pfds": 7.667,
+    "candidates_tested": 11.333,
+    "mean_support": 3310.315,
+    "mean_confidence": 0.958,
+    "execution_time": 5.97,
+    "validation_rate": 0.674,
+    "execution_time_stdev": 0.262
+  },
+  "runs": [
+    {
+      "nb_pfds": 8,
+      "execution_time": 5.69,
+      "candidates_tested": 11,
+      "mean_support": 3231.0,
+      "mean_confidence": 0.968125,
+      "validation_rate": 0.727,
+      "discovered_pfds": [
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9629
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9588
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.944
+        },
+        {
+          "lhs": "STATE__raw",
+          "rhs": "COUNTRY",
+          "support": 3499,
+          "confidence": 0.9977
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "prefix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "FAX",
+          "transform": "prefix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "NAME",
+          "transform": "last_token",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "ADDRESS_2"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "raw",
+          "rhs": "FAX"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "first_token",
+          "rhs": "Year"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_5",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "STATE",
+          "transform": "raw",
+          "rhs": "COUNTRY"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 9,
+      "execution_time": 6.01,
+      "candidates_tested": 12,
+      "mean_support": 3379.777777777778,
+      "mean_confidence": 0.9415111111111111,
+      "validation_rate": 0.75,
+      "discovered_pfds": [
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "ADDRESS_1__first_token",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8882
+        },
+        {
+          "lhs": "FAX__prefix_3",
+          "rhs": "STATE",
+          "support": 2428,
+          "confidence": 0.9629
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.8536
+        },
+        {
+          "lhs": "NAME__suffix_3",
+          "rhs": "COUNTRY",
+          "support": 3501,
+          "confidence": 0.9971
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "ZIP",
+          "support": 3498,
+          "confidence": 0.8902
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "prefix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "NAME",
+          "transform": "last_token",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "FAX",
+          "transform": "prefix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "prefix_3",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ADDRESS_2",
+          "transform": "prefix_2",
+          "rhs": "ADDRESS_1"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "first_token",
+          "rhs": "Year"
+        },
+        {
+          "lhs_col": "NAME",
+          "transform": "suffix_3",
+          "rhs": "COUNTRY"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_5",
+          "rhs": "ZIP"
+        }
+      ]
+    },
+    {
+      "nb_pfds": 6,
+      "execution_time": 6.21,
+      "candidates_tested": 11,
+      "mean_support": 3320.1666666666665,
+      "mean_confidence": 0.9640666666666666,
+      "validation_rate": 0.545,
+      "discovered_pfds": [
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.9768
+        },
+        {
+          "lhs": "ZIP__raw",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9823
+        },
+        {
+          "lhs": "PHONE__prefix_3",
+          "rhs": "STATE",
+          "support": 3498,
+          "confidence": 0.9525
+        },
+        {
+          "lhs": "NAME__last_token",
+          "rhs": "ACTIVE",
+          "support": 3501,
+          "confidence": 0.97
+        },
+        {
+          "lhs": "ADDRESS_1__prefix_5",
+          "rhs": "CITY",
+          "support": 3498,
+          "confidence": 0.944
+        },
+        {
+          "lhs": "PHONE__raw",
+          "rhs": "FAX",
+          "support": 2428,
+          "confidence": 0.9588
+        }
+      ],
+      "candidates_proposed": [
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "ZIP",
+          "transform": "raw",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "prefix_3",
+          "rhs": "STATE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "first_token",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "last_token",
+          "rhs": "ADDRESS_2"
+        },
+        {
+          "lhs_col": "NAME",
+          "transform": "last_token",
+          "rhs": "ACTIVE"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "prefix_5",
+          "rhs": "CITY"
+        },
+        {
+          "lhs_col": "PHONE",
+          "transform": "raw",
+          "rhs": "FAX"
+        },
+        {
+          "lhs_col": "CREATED_DATE",
+          "transform": "first_token",
+          "rhs": "Year"
+        },
+        {
+          "lhs_col": "ADDRESS_1",
+          "transform": "suffix_3",
+          "rhs": "ZIP"
+        },
+        {
+          "lhs_col": "NAME",
+          "transform": "prefix_2",
+          "rhs": "EMPLOYER_ID"
+        }
+      ]
+    }
+  ]
+}
