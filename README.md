@@ -102,30 +102,45 @@ pfd-discovery/
 │       └── US_Phone_Code.csv       # State → Code téléphone
 │
 ├── src/
-│   ├── core/                       # Algorithmes du cours
+│   ├── core/                       # Algorithmes FD du cours (référence)
 │   │   ├── partition.py            # Partitions d'équivalence (brique de base TANE)
 │   │   ├── tane.py                 # Algorithme TANE complet avec pruning
-│   │   └── fastfd.py               # Algorithme FASTFD : difference sets + hitting sets
+│   │   ├── fastfd.py               # Algorithme FASTFD : difference sets + hitting sets
+│   │   └── fd_validator.py         # Validation de FDs exactes
 │   │
-│   ├── patterns/                   # Extension PFD
+│   ├── patterns/                   # Découverte PFD
 │   │   ├── extractor.py            # Extraction de patterns (prefix, token, domain...)
 │   │   ├── pfd_validator.py        # Calcul support et confidence d'une PFD
-│   │   └── pfd_discovery.py        # Algorithme classique de découverte PFD
+│   │   └── pfd_discovery.py        # Algorithme classique de découverte PFD (brute-force)
 │   │
 │   ├── agent/                      # Couche LLM agentique
+│   │   ├── llm_provider.py         # Abstraction multi-providers (Claude, Mistral, Groq...)
 │   │   ├── semantic_profiler.py    # LLM analyse le schéma et les types d'attributs
 │   │   ├── candidate_selector.py   # LLM filtre et priorise les candidats
-│   │   └── workflow.py             # Les 3 workflows du cours
+│   │   ├── llm_comparison.py       # Comparaison de plusieurs LLMs sur un même dataset
+│   │   └── workflow.py             # Les 3 workflows (classique, agentique v1, v2)
 │   │
 │   └── experiments/
 │       ├── runner.py               # Lance les expériences sur les datasets
 │       └── metrics.py              # Calcule et compare les métriques
 │
-├── tests/
-│   └── test_core.py                # Tests sur le dataset exemple du cours (slide 7)
+├── tests/                          # Tests unitaires et d'intégration
+│   ├── test_core.py                # Tests TANE/FASTFD (dataset exemple du cours, slide 7)
+│   ├── test_extractor.py           # Tests des transformations de patterns
+│   ├── test_pdf_validator.py       # Tests du calcul support/confidence
+│   ├── test_pfd_discovery.py       # Tests de la découverte classique
+│   ├── test_pdf_pipeline.py        # Tests du pipeline bout en bout
+│   ├── test_real_data.py           # Tests sur les vrais datasets
+│   ├── test_agent.py               # Tests des workflows agentiques
+│   └── test_llm_comparison.py      # Tests de la comparaison LLM
+│
+├── notebooks/
+│   └── exploration.ipynb           # Exploration et visualisation des résultats
+│
+├── PatternFD-miniprojet/
+│   └── Approximate_PFDs.pdf        # Slides du cours (référence)
 │
 ├── results/                        # Résultats JSON générés automatiquement
-├── notebooks/                      # Exploration et visualisation
 ├── .env                            # Clés API — NE PAS COMMITER
 ├── .gitignore
 ├── requirements.txt
@@ -160,18 +175,6 @@ Les deux algorithmes doivent retourner exactement les mêmes FDs.
 
 ---
 
-## Répartition des tâches
-
-| Personne | Tâche | Fichiers principaux |
-|---|---|---|
-| Maxance Villame | Extraction de patterns | `src/patterns/extractor.py` |
-| Ferdinand Martin Lavigne | Validation et découverte classique | `src/patterns/pfd_validator.py`, `src/patterns/pfd_discovery.py` |
-| Baptiste Matrat | Workflows agentiques | `src/agent/` |
-| Marie Probert | Expériences et métriques | `src/experiments/` |
-| Justine Rault | Rapport, intégration et README | — |
-
----
-
 ## Datasets disponibles
 
 | Fichier | Contenu | PFDs attendues |
@@ -180,22 +183,6 @@ Les deux algorithmes doivent retourner exactement les mêmes FDs.
 | `pfd_validation/t2.csv` | Entreprises (ZIP, ville, téléphone) | `prefix(ZIP,3) → city` |
 | `pfd_validation/t3.csv` | Licences (zip, city, state) | `prefix(Zip,3) → city` |
 | `pfd_validation/US_Phone_Code.csv` | États US et codes téléphone | `State → Code` |
-
----
-
-## Dépendances
-
-| Package | Usage |
-|---|---|
-| `pandas` | Manipulation des DataFrames |
-| `numpy` | Calculs numériques |
-| `anthropic` | API Claude (LLM agentique) |
-| `openai` | API OpenAI (comparaison LLMs) |
-| `google-generativeai` | API Gemini (comparaison LLMs) |
-| `python-dotenv` | Chargement des clés API depuis `.env` |
-| `pytest` | Tests unitaires |
-| `tqdm` | Barres de progression |
-| `jupyter` | Notebooks d'exploration |
 
 ---
 
