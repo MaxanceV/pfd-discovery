@@ -2,7 +2,7 @@
 Workflows de découverte de Pattern Functional Dependencies (PFDs).
 
 Trois approches :
-  1. **Classique** : algorithmes TANE/FASTFD sans intervention LLM
+  1. **Classique** : découverte brute-force par patterns sans intervention LLM
   2. **Agentique v1** : LLM analyse les colonnes → transformations optimisées → découverte classique
   3. **Agentique v2** : v1 + LLM filtre et priorise les candidates → découverte ciblée
 """

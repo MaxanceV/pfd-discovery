@@ -10,7 +10,7 @@
 
 Ce projet implémente et compare deux approches pour la découverte de **Pattern Functional Dependencies (PFDs) approximatives** :
 
-1. **Approche classique** : algorithmes TANE et FASTFD vus en cours
+1. **Approche classique** : découverte brute-force par extraction de patterns et validation algorithmique
 2. **Approche agentique** : utilisation d'un LLM pour guider la recherche
 
 Une PFD est une généralisation des dépendances fonctionnelles classiques. Au lieu de comparer des valeurs entières, elle compare des **patterns** extraits de ces valeurs.
@@ -160,40 +160,15 @@ Les deux algorithmes doivent retourner exactement les mêmes FDs.
 
 ---
 
-## Workflow Git — travailler à 5
+## Répartition des tâches
 
-### Règle principale : chacun travaille sur sa propre branche, jamais directement sur `main`
-
-```bash
-# Créer sa branche
-git checkout -b feature/ma-partie
-
-# Travailler puis commiter régulièrement
-git add src/mon_fichier.py
-git commit -m "feat: description de ce que j'ai fait"
-git push origin feature/ma-partie
-```
-
-Quand c'est prêt → ouvrir une **Pull Request** sur GitHub vers `main`. Un autre coéquipier relit et merge.
-
-### Répartition des branches
-
-| Personne | Branche | Fichiers |
+| Personne | Tâche | Fichiers principaux |
 |---|---|---|
-| Maxance Villame | `feature/pattern-extractor` | `src/patterns/extractor.py` |
-| Ferdinand Martin Lavigne | `feature/validator` | `src/patterns/pfd_validator.py` + `pfd_discovery.py` |
-| Baptiste Matrat | `feature/agent` | `src/agent/` |
-| Marie Probert | `feature/experiments` | `src/experiments/` |
-| Justine Rault | `feature/report` | Rapport + intégration + README |
-
-### Mettre à jour sa branche avec les derniers changements de `main`
-
-```bash
-git checkout main
-git pull origin main
-git checkout feature/ma-partie
-git merge main
-```
+| Maxance Villame | Extraction de patterns | `src/patterns/extractor.py` |
+| Ferdinand Martin Lavigne | Validation et découverte classique | `src/patterns/pfd_validator.py`, `src/patterns/pfd_discovery.py` |
+| Baptiste Matrat | Workflows agentiques | `src/agent/` |
+| Marie Probert | Expériences et métriques | `src/experiments/` |
+| Justine Rault | Rapport, intégration et README | — |
 
 ---
 
@@ -227,11 +202,9 @@ git merge main
 ## Points importants
 
 - Ne jamais commiter le fichier `.env`
-- Toujours travailler sur une branche, jamais directement sur `main`
 - Commiter régulièrement avec des messages clairs
 - Utiliser les mêmes datasets pour toutes les méthodes (comparaison équitable)
 - Seuils par défaut suggérés : `support >= 10`, `confidence >= 0.85`
-- En cas de conflit Git : ne pas forcer le merge, consulter l'équipe
 
 ## Lancer les expériences
 
