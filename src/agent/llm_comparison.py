@@ -12,10 +12,9 @@ import pandas as pd
 import time
 from typing import Dict, List, Any
 from src.agent.llm_provider import LLMFactory, LLMProvider
-from src.agent.semantic_profiler import get_profile_summary, get_optimized_config
+from src.agent.semantic_profiler import get_profile_summary
 from src.agent.candidate_selector import select_best_candidates
 from src.patterns.pfd_discovery import discover_pfds
-from src.patterns.extractor import enrich_dataframe_multi
 
 
 def _run_with_llm(provider: LLMProvider, func, *args, **kwargs) -> Dict[str, Any]:
@@ -127,27 +126,27 @@ def compare_llm_profiles(df: pd.DataFrame,
         providers_list = ["claude", "openai", "gemini"]
     
     print(f"\n{'='*70}")
-    print(f"🤖 COMPARAISON DES PROFILS SÉMANTIQUES (LLM Profiling)")
+    print(f"COMPARAISON DES PROFILS SÉMANTIQUES (LLM Profiling)")
     print(f"{'='*70}")
-    print(f"Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
+    print(f"Dataset : {df.shape[0]} lignes x {df.shape[1]} colonnes")
     print(f"Providers à tester : {', '.join(providers_list).upper()}\n")
-    
+
     results = {}
     times = {}
-    
+
     for provider_name in providers_list:
-        print(f"  ⏱️  Profiling avec {provider_name.upper()}...", end=" ", flush=True)
-        
+        print(f"  Profiling avec {provider_name.upper()}...", end=" ", flush=True)
+
         try:
             provider = LLMFactory.create(provider_name)
             result = profile_with_llm(df, provider)
             results[provider_name] = result
             times[provider_name] = result["execution_time"]
-            
+
             if result["success"]:
-                print(f"✅ {result['execution_time']}s")
+                print(f"OK {result['execution_time']}s")
             else:
-                print(f"❌ Erreur : {result['error']}")
+                print(f"Erreur : {result['error']}")
         except Exception as e:
             results[provider_name] = {
                 "provider": provider_name,
@@ -155,9 +154,8 @@ def compare_llm_profiles(df: pd.DataFrame,
                 "error": str(e),
                 "execution_time": 0
             }
-            print(f"❌ {str(e)}")
+            print(str(e))
     
-    # Analyse comparative
     successful = sum(1 for r in results.values() if r.get("success"))
     failed = sum(1 for r in results.values() if not r.get("success"))
     fastest = min((name for name, t in times.items() if times[name] > 0), 
@@ -207,18 +205,18 @@ def compare_llm_candidate_selection(candidates: List[Dict],
         providers_list = ["claude", "openai", "gemini"]
     
     print(f"\n{'='*70}")
-    print(f"🤖 COMPARAISON DE LA SÉLECTION DE CANDIDATES (LLM Ranking)")
+    print(f"COMPARAISON DE LA SÉLECTION DE CANDIDATES (LLM Ranking)")
     print(f"{'='*70}")
     print(f"Candidates à évaluer : {len(candidates)}")
     print(f"Providers à tester : {', '.join(providers_list).upper()}\n")
-    
+
     results = {}
     times = {}
     selected_counts = {}
-    
+
     for provider_name in providers_list:
-        print(f"  ⏱️  Évaluation avec {provider_name.upper()}...", end=" ", flush=True)
-        
+        print(f"  Évaluation avec {provider_name.upper()}...", end=" ", flush=True)
+
         try:
             provider = LLMFactory.create(provider_name)
             result = select_candidates_with_llm(
@@ -230,11 +228,11 @@ def compare_llm_candidate_selection(candidates: List[Dict],
             results[provider_name] = result
             times[provider_name] = result["execution_time"]
             selected_counts[provider_name] = result["selected_count"]
-            
+
             if result["success"]:
-                print(f"✅ {result['execution_time']}s ({result['selected_count']} sélectionnées)")
+                print(f"OK {result['execution_time']}s ({result['selected_count']} sélectionnées)")
             else:
-                print(f"❌ Erreur : {result['error']}")
+                print(f"Erreur : {result['error']}")
         except Exception as e:
             results[provider_name] = {
                 "provider": provider_name,
@@ -243,9 +241,8 @@ def compare_llm_candidate_selection(candidates: List[Dict],
                 "execution_time": 0,
                 "selected_count": 0
             }
-            print(f"❌ {str(e)}")
+            print(str(e))
     
-    # Analyse comparative
     successful = sum(1 for r in results.values() if r.get("success"))
     failed = sum(1 for r in results.values() if not r.get("success"))
     fastest = min((name for name, t in times.items() if times[name] > 0), 
@@ -287,52 +284,52 @@ def full_comparison(df: pd.DataFrame,
         providers_list = ["claude", "openai", "gemini"]
     
     print(f"\n{'='*70}")
-    print(f"🚀 COMPARAISON COMPLÈTE DES LLM PROVIDERS")
+    print(f"COMPARAISON COMPLÈTE DES LLM PROVIDERS")
     print(f"{'='*70}")
-    
+
     # 1. Profiling sémantique
     profiling = compare_llm_profiles(df, providers_list)
-    
+
     # 2. Découverte classique (benchmark)
     print(f"\n{'='*70}")
-    print(f"📊 DÉCOUVERTE CLASSIQUE (Benchmark - pas de LLM)")
+    print(f"DÉCOUVERTE CLASSIQUE (Benchmark - pas de LLM)")
     print(f"{'='*70}")
-    print("  ⏱️  Exécution de la découverte classique...", end=" ", flush=True)
-    
+    print("  Exécution de la découverte classique...", end=" ", flush=True)
+
     start = time.time()
     discovered_pfds, stats = discover_pfds(df, min_support=min_support, min_confidence=min_confidence)
     classic_time = time.time() - start
-    
-    print(f"✅ {classic_time:.2f}s ({len(discovered_pfds)} PFDs trouvées)")
-    
+
+    print(f"OK {classic_time:.2f}s ({len(discovered_pfds)} PFDs trouvées)")
+
     # 3. Sélection de candidates
     selection = compare_llm_candidate_selection(
         discovered_pfds,
         providers_list=providers_list,
         top_k=10
     )
-    
+
     # Résumé comparatif
     print(f"\n{'='*70}")
-    print(f"📊 RÉSUMÉ COMPARATIF")
+    print(f"RÉSUMÉ COMPARATIF")
     print(f"{'='*70}\n")
-    
+
     print(f"{'Provider':<15} {'Profiling':<15} {'Sélection':<15} {'Qualité':<15}")
     print("-" * 60)
-    
+
     for provider_name in providers_list:
         prof_time = profiling["profiles"].get(provider_name, {}).get("execution_time", "-")
-        prof_success = "✅" if profiling["profiles"].get(provider_name, {}).get("success") else "❌"
-        
+        prof_ok = profiling["profiles"].get(provider_name, {}).get("success")
+
         sel_info = selection["selections"].get(provider_name, {})
         sel_time = sel_info.get("execution_time", "-")
-        sel_success = "✅" if sel_info.get("success") else "❌"
+        sel_ok = sel_info.get("success")
         sel_count = sel_info.get("selected_count", 0)
-        
-        quality = f"{sel_info.get('confidence_score', 0):.2%}" if sel_success else "N/A"
-        
-        prof_display = f"{prof_success} {prof_time}s" if prof_success == "✅" else f"{prof_success}"
-        sel_display = f"{sel_success} {sel_time}s" if sel_success == "✅" else f"{sel_success}"
+
+        quality = f"{sel_info.get('confidence_score', 0):.2%}" if sel_ok else "N/A"
+
+        prof_display = f"OK {prof_time}s" if prof_ok else "ERREUR"
+        sel_display = f"OK {sel_time}s" if sel_ok else "ERREUR"
         
         print(f"{provider_name.upper():<15} {prof_display:<15} {sel_display:<15} {quality:<15}")
     

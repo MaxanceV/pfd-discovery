@@ -16,9 +16,8 @@ Stratégie :
 Support multi-LLM : Claude, OpenAI, Gemini, Ollama
 """
 
-import pandas as pd
 import json
-from src.agent.llm_provider import LLMFactory, LLMProvider, get_default_provider
+from src.agent.llm_provider import LLMProvider, get_default_provider
 
 
 def format_candidate_for_llm(candidate_dict: dict) -> str:
@@ -61,10 +60,9 @@ def select_best_candidates(candidates_list: list,
         }
     """
     
-    # Utiliser le provider par défaut si non fourni
     if llm_provider is None:
         llm_provider = get_default_provider()
-    
+
     if not candidates_list:
         return {
             "selected_candidates": [],
@@ -73,17 +71,16 @@ def select_best_candidates(candidates_list: list,
             "confidence_score": 0.0,
             "llm_provider": llm_provider.provider_name
         }
-    
+
+    # Au-delà de 100 candidates le prompt devient trop long : on pré-filtre
     if len(candidates_list) > 100:
         candidates_list = rank_and_filter(candidates_list, min_confidence=0.85)[:100]
 
-    # Formater les candidates (le reste du code ne change pas...)
     formatted = "\n".join(
         f"  {i+1}. {format_candidate_for_llm(c)}"
         for i, c in enumerate(candidates_list)
     )
     
-    # Contexte métier optionnel
     metadata_str = ""
     if df_metadata:
         metadata_str = f"""
@@ -91,7 +88,7 @@ Context métier fourni :
 {json.dumps(df_metadata, indent=2, ensure_ascii=False)}
 
 """
-    
+
     prompt = f"""Tu es un expert en qualité des données et Pattern Functional Dependencies (PFDs).
 
 Tu dois évaluer et classer les PFD candidates suivantes selon leur pertinence MÉTIER et LOGIQUE :
@@ -103,10 +100,10 @@ Tu dois évaluer et classer les PFD candidates suivantes selon leur pertinence M
 Critères d'évaluation :
 1. **Support** : nombre de tuples concernés (plus = mieux)
 2. **Confidence** : proportion de tuples cohérents (90%+ = bon signal)
-3. **Logique métier** : la dépendance a-t-elle du sens ? 
-   - prefix(ZIP) → city = ✅ bon sens métier
-   - first_token(name) → gender = ⚠️ mauvais sens métier
-   - random_col → random_col2 = ❌ pas de sens
+3. **Logique métier** : la dépendance a-t-elle du sens ?
+   - prefix(ZIP) → city : bon sens métier
+   - first_token(name) → gender : sens métier discutable
+   - random_col → random_col2 : pas de sens
 4. **Violations** : peu de violations = meilleur signal
 
 Tâche :
@@ -137,19 +134,16 @@ Réponds en JSON strict (pas de markdown) :
 }}
 """
     
-    # Appel au LLM provider
     response_text = llm_provider.call(prompt, max_tokens=3000)
-    
-    # Nettoyer markdown si présent
+
+    # certains modèles encadrent la réponse JSON dans un bloc markdown
     if response_text.startswith("```json"):
         response_text = response_text.replace("```json", "").replace("```", "").strip()
     elif response_text.startswith("```"):
         response_text = response_text.replace("```", "").strip()
-    
-    # Parser JSON
+
     result = json.loads(response_text)
-    
-    # Calculer un score de confiance global
+
     selected = result.get("selected_candidates", [])
     confidence_score = sum(c.get("score", 0) for c in selected) / len(selected) if selected else 0.0
     
@@ -177,63 +171,8 @@ def rank_and_filter(candidates_list: list,
         c for c in candidates_list
         if c.get("confidence", 0) >= min_confidence and c.get("support", 0) >= min_support
     ]
-    
-    # Trier par confidence puis support
-    sorted_candidates = sorted(
+    return sorted(
         filtered,
         key=lambda c: (c.get("confidence", 0), c.get("support", 0)),
         reverse=True
     )
-    
-    return sorted_candidates
-
-
-def get_top_candidates_for_testing(candidates_list: list,
-                                   top_k: int = 5,
-                                   use_llm: bool = True,
-                                   df_metadata: dict = None,
-                                   llm_provider: LLMProvider = None) -> list:
-    """
-    Interface principale : retourne les top K candidates à tester en priorité.
-    
-    Args:
-        candidates_list : sortie de discover_pfds()
-        top_k           : nombre de candidates à retourner
-        use_llm         : si False, utilise juste le tri heuristique
-        df_metadata     : contexte métier optionnel pour l'LLM
-        llm_provider    : LLMProvider optionnel
-    
-    Returns:
-        liste ordonnée des meilleures candidates { lhs, rhs, ... }
-    """
-    
-    if not use_llm:
-        # Juste tri heuristique
-        ranked = rank_and_filter(candidates_list)
-        return ranked[:top_k]
-    
-    # Avec LLM
-    evaluation = select_best_candidates(
-        candidates_list,
-        df_metadata=df_metadata,
-        top_k=top_k,
-        llm_provider=llm_provider
-    )
-    
-    # Retourner les selected candidates avec leurs infos originales
-    selected = evaluation["selected_candidates"]
-    
-    # Mapper back aux infos complètes
-    result = []
-    for sel in selected:
-        # Chercher la candidate originale
-        for orig in candidates_list:
-            if orig["lhs"] == sel["lhs"] and orig["rhs"] == sel["rhs"]:
-                result.append({
-                    **orig,
-                    "llm_score": sel["score"],
-                    "llm_reason": sel["reason"]
-                })
-                break
-    
-    return result

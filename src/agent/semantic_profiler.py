@@ -15,13 +15,13 @@ Support multi-LLM : Claude, OpenAI, Gemini, Ollama
 import pandas as pd
 import json
 import warnings
-from src.agent.llm_provider import LLMFactory, LLMProvider, get_default_provider
+from src.agent.llm_provider import LLMProvider, get_default_provider
 from src.patterns.extractor import TRANSFORMATIONS
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# ---
 # Normalisation des noms de colonnes
-# ─────────────────────────────────────────────────────────────────────────────
+# ---
 
 def _normalize_col(col: str) -> str:
     """
@@ -172,30 +172,6 @@ Réponds en JSON strict (pas de markdown, pas d'explication avant) :
     return result
 
 
-def get_optimized_config(df: pd.DataFrame, llm_provider: LLMProvider = None) -> dict:
-    """
-    Wrapper qui retourne directement la configuration optimisée
-    pour enrich_dataframe_multi().
-    
-    Args:
-        df           : DataFrame à analyser
-        llm_provider : LLMProvider optionnel
-    
-    Returns:
-        dict { column_name: [list of transformations] }
-    """
-    profile = semantic_profile(df, llm_provider=llm_provider)
-    
-    # Extraire les recommandations
-    config = profile.get("transformation_recommendations", {})
-    
-    # Valider que chaque colonne du DF est dans la config
-    for col in df.columns:
-        if col not in config:
-            config[col] = ["raw"]
-    
-    return config
-
 
 def get_profile_summary(df: pd.DataFrame, llm_provider: LLMProvider = None) -> dict:
     """
@@ -230,7 +206,6 @@ def suggest_candidate_pairs(df: pd.DataFrame, llm_provider: LLMProvider = None) 
     if llm_provider is None:
         llm_provider = get_default_provider()
 
-    # Normalisation : le LLM reçoit des noms sans espaces ni majuscules
     col_mapping = _build_col_mapping(df)
     reverse_mapping = {original: normalized for normalized, original in col_mapping.items()}
 
@@ -292,6 +267,7 @@ Commence ta réponse par [ et termine par ]"""
         transform = p.get("transform", "")
 
         if lhs_col in valid_cols and transform in valid_transforms and rhs in valid_cols and lhs_col != rhs:
+            # domain n'a de sens que si la colonne contient des emails
             if transform == "domain" and not df[lhs_col].dropna().astype(str).str.contains('@').any():
                 continue
             validated.append({"lhs_col": lhs_col, "transform": transform, "rhs": rhs})

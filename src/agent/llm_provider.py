@@ -54,7 +54,7 @@ class LLMProvider(ABC):
         pass
 
 
-# ─── Provider Claude (Anthropic) ──────────────────────────────────────────
+# Provider Claude (Anthropic)
 class ClaudeProvider(LLMProvider):
     """Provider pour Claude (Anthropic)."""
     
@@ -63,7 +63,7 @@ class ClaudeProvider(LLMProvider):
         self.api_key = os.getenv("ANTHROPIC_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ ANTHROPIC_API_KEY non trouvée dans .env")
+            raise ValueError("ANTHROPIC_API_KEY non trouvée dans .env")
         
         from anthropic import Anthropic
         self.client = Anthropic(api_key=self.api_key)
@@ -80,7 +80,7 @@ class ClaudeProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider OpenAI ─────────────────────────────────────────────────────
+# Provider OpenAI
 class OpenAIProvider(LLMProvider):
     """Provider pour OpenAI (GPT-4, GPT-3.5-turbo)."""
     
@@ -89,7 +89,7 @@ class OpenAIProvider(LLMProvider):
         self.api_key = os.getenv("OPENAI_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ OPENAI_API_KEY non trouvée dans .env")
+            raise ValueError("OPENAI_API_KEY non trouvée dans .env")
         
         from openai import OpenAI
         self.client = OpenAI(api_key=self.api_key)
@@ -106,27 +106,25 @@ class OpenAIProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider Gemini ────────────────────────────────────────────────
+# Provider Gemini
 class GeminiProvider(LLMProvider):
     """Provider pour Google Gemini (Méthode forte : API REST directe)."""
     
-    # On utilise 2.5-flash : ultra-rapide, gratuit (15 requêtes/min), et toujours en ligne.
-    # (gemini-1.5-flash a été retiré de l'API v1beta)
+    # gemini-1.5-flash a été retiré de l'API v1beta
     def __init__(self, model_name: str = "gemini-2.0-flash"):
         super().__init__(model_name)
         self.api_key = os.getenv("GOOGLE_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ GOOGLE_API_KEY non trouvée dans .env")
+            raise ValueError("GOOGLE_API_KEY non trouvée dans .env")
     
     def call(self, prompt: str, max_tokens: int = 2000) -> str:
         import urllib.request
         import json
         
-        # URL directe vers l'API moderne de Google (contourne les bugs du SDK)
+        # API REST directe : le SDK Python Gemini a des bugs de compatibilité v1beta
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model_name}:generateContent?key={self.api_key}"
-        
-        # Format attendu par l'API Gemini
+
         payload = {
             "contents": [{
                 "parts": [{"text": prompt}]
@@ -147,10 +145,9 @@ class GeminiProvider(LLMProvider):
         try:
             with urllib.request.urlopen(req) as response:
                 result = json.loads(response.read().decode('utf-8'))
-                # Extraction du texte depuis la réponse complexe de Gemini
                 return result["candidates"][0]["content"]["parts"][0]["text"]
         except Exception as e:
-            # S'il y a une erreur HTTP (ex: 429), on essaie de lire le vrai message de Google
+            # Les erreurs HTTP (ex: 429) ont un corps lisible via e.read()
             if hasattr(e, 'read'):
                 error_body = e.read().decode('utf-8')
                 raise RuntimeError(f"Erreur API Gemini ({e.code}) : {error_body}")
@@ -160,7 +157,7 @@ class GeminiProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider Groq ───────────────────────────────────────────────────────
+# Provider Groq
 class GroqProvider(LLMProvider):
     """Provider pour Groq (modèles rapides)."""
     
@@ -169,13 +166,13 @@ class GroqProvider(LLMProvider):
         self.api_key = os.getenv("GROQ_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ GROQ_API_KEY non trouvée dans .env")
-        
+            raise ValueError("GROQ_API_KEY non trouvée dans .env")
+
         try:
             from groq import Groq
             self.client = Groq(api_key=self.api_key)
         except ImportError:
-            raise ImportError("⚠️  groq nécessaire. Installe : pip install groq")
+            raise ImportError("groq nécessaire : pip install groq")
     
     def call(self, prompt: str, max_tokens: int = 2000) -> str:
         response = self.client.chat.completions.create(
@@ -189,23 +186,23 @@ class GroqProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider HuggingFace ────────────────────────────────────────────────
+# Provider HuggingFace
 class HuggingFaceProvider(LLMProvider):
     """Provider pour HuggingFace Inference API (via librairie officielle)."""
     
-    # Qwen 2.5 est puissant, rapide, et surtout NON restreint (pas de contrat à signer)
+    # Qwen2.5 : pas de contrat d'accès requis contrairement à certains modèles HF
     def __init__(self, model_name: str = "Qwen/Qwen2.5-7B-Instruct"):
         super().__init__(model_name)
         self.api_key = os.getenv("HUGGINGFACE_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ HUGGINGFACE_API_KEY non trouvée dans .env")
-        
+            raise ValueError("HUGGINGFACE_API_KEY non trouvée dans .env")
+
         try:
             from huggingface_hub import InferenceClient
             self.client = InferenceClient(token=self.api_key)
         except ImportError:
-            raise ImportError("⚠️  huggingface_hub nécessaire. Installe : pip install huggingface_hub")
+            raise ImportError("huggingface_hub nécessaire : pip install huggingface_hub")
     
     def call(self, prompt: str, max_tokens: int = 2000) -> str:
         try:
@@ -222,7 +219,7 @@ class HuggingFaceProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider Mistral ────────────────────────────────────────────────────
+# Provider Mistral
 class MistralProvider(LLMProvider):
     """Provider pour Mistral AI."""
     
@@ -231,13 +228,13 @@ class MistralProvider(LLMProvider):
         self.api_key = os.getenv("MISTRAL_API_KEY")
         
         if not self.api_key:
-            raise ValueError("❌ MISTRAL_API_KEY non trouvée dans .env")
-        
+            raise ValueError("MISTRAL_API_KEY non trouvée dans .env")
+
         try:
             from mistralai.client import Mistral
             self.client = Mistral(api_key=self.api_key)
         except ImportError as e:
-            raise ImportError(f"⚠️  mistralai nécessaire. Installe : pip install mistralai (Erreur: {e})")
+            raise ImportError(f"mistralai nécessaire : pip install mistralai ({e})")
     
     def call(self, prompt: str, max_tokens: int = 2000) -> str:
         try:
@@ -254,19 +251,19 @@ class MistralProvider(LLMProvider):
         return bool(self.api_key)
 
 
-# ─── Provider Ollama (Local) ─────────────────────────────────────────────
+# Provider Ollama (Local)
 class OllamaProvider(LLMProvider):
     """Provider pour Ollama (modèles locaux gratuits)."""
     
-    def __init__(self, model_name: str = "llama2", base_url: str = "http://localhost:11434"):
+    def __init__(self, model_name: str = "llama2", base_url: str = None):
         super().__init__(model_name)
-        self.base_url = base_url
+        self.base_url = base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
         
         try:
             import requests
             self.requests = requests
         except ImportError:
-            raise ImportError("⚠️  requests nécessaire pour Ollama. Installe : pip install requests")
+            raise ImportError("requests nécessaire pour Ollama : pip install requests")
     
     def call(self, prompt: str, max_tokens: int = 2000) -> str:
         import requests
@@ -295,7 +292,7 @@ class OllamaProvider(LLMProvider):
             return False
 
 
-# ─── Factory LLM avec auto-découverte ────────────────────────────────────
+# Factory LLM avec auto-découverte
 class LLMFactory:
     """
     Factory pour créer les LLM providers avec auto-découverte.
@@ -304,8 +301,6 @@ class LLMFactory:
     les mappe aux providers correspondants.
     """
     
-    # Mapping entre les clés API et leurs providers
-    # Format : "CLEFS_API_KEY": ("provider_name", ProviderClass)
     API_KEY_TO_PROVIDER = {
         "ANTHROPIC_API_KEY": ("claude", ClaudeProvider),
         "OPENAI_API_KEY": ("openai", OpenAIProvider),
@@ -313,6 +308,7 @@ class LLMFactory:
         "GROQ_API_KEY": ("groq", GroqProvider),
         "HUGGINGFACE_API_KEY": ("huggingface", HuggingFaceProvider),
         "MISTRAL_API_KEY": ("mistral", MistralProvider),
+        "OLLAMA_BASE_URL": ("ollama", OllamaProvider),
     }
     
     @staticmethod
@@ -332,15 +328,15 @@ class LLMFactory:
                     try:
                         provider = ProviderClass()
                         is_available = provider.validate_credentials()
-                        status[provider_name] = "✅ Disponible" if is_available else "❌ Credentials manquantes"
+                        status[provider_name] = "disponible" if is_available else "credentials manquantes"
                     except ImportError as ie:
-                        status[provider_name] = f"❌ {str(ie)[:60]}"
+                        status[provider_name] = str(ie)[:60]
                     except Exception as e:
-                        status[provider_name] = f"❌ {str(e)[:60]}"
+                        status[provider_name] = str(e)[:60]
                 else:
-                    status[provider_name] = "❌ Clé API manquante"
+                    status[provider_name] = "clé API manquante"
             except Exception as e:
-                status[provider_name] = f"❌ {str(e)[:50]}"
+                status[provider_name] = str(e)[:50]
         
         return status
     
@@ -360,26 +356,22 @@ class LLMFactory:
             ValueError si le provider est inconnu
         """
         provider_name = provider_name.lower()
-        
-        # Trouver dans le mapping
+
         for api_key, (name, ProviderClass) in LLMFactory.API_KEY_TO_PROVIDER.items():
             if name == provider_name:
                 if model_name:
                     return ProviderClass(model_name)
                 else:
                     return ProviderClass()
-        
-        # Provider non trouvé
+
         available_names = [name for name, _ in LLMFactory.API_KEY_TO_PROVIDER.values()]
-        raise ValueError(f"❌ Provider '{provider_name}' inconnu. Disponibles : {', '.join(available_names)}")
+        raise ValueError(f"Provider '{provider_name}' inconnu. Disponibles : {', '.join(available_names)}")
     
     @staticmethod
     def list_providers():
         """Affiche les providers disponibles et leur status."""
-        print("\n🤖 LLM Providers disponibles :\n")
+        print("\nLLM Providers disponibles :\n")
         status = LLMFactory.get_available_providers()
-        
-        # Formater avec noms plus lisibles
         for provider_name, msg in status.items():
             display_name = format_provider_name(provider_name)
             print(f"  {display_name:<20} : {msg}")
@@ -419,7 +411,6 @@ def format_provider_name(provider_name: str) -> str:
     Returns:
         Nom formaté avec majuscule et espaces appropriés
     """
-    # Cas spéciaux
     special_cases = {
         "claude": "Claude",
         "openai": "Open AI",
@@ -429,11 +420,8 @@ def format_provider_name(provider_name: str) -> str:
         "mistral": "Mistral",
         "ollama": "Ollama"
     }
-    
     if provider_name in special_cases:
         return special_cases[provider_name]
-    
-    # Cas général : capitaliser la première lettre
     return provider_name.capitalize()
 
 
@@ -453,13 +441,14 @@ def get_default_provider() -> LLMProvider:
             provider = LLMFactory.create(provider_name)
             if provider.validate_credentials():
                 display_name = format_provider_name(provider_name)
-                print(f"✅ Utilisation du provider par défaut : {display_name}")
+                print(f"Provider par défaut : {display_name}")
                 return provider
-        except:
+        except Exception:
+            # provider non configuré ou package manquant : on passe au suivant
             continue
     
     raise RuntimeError(
-        "❌ Aucun LLM provider disponible. Configure au moins une clé API dans .env :\n"
+        "Aucun LLM provider disponible. Configure au moins une clé API dans .env :\n"
         "   ANTHROPIC_API_KEY (Claude)\n"
         "   OPENAI_API_KEY (Open AI)\n"
         "   GOOGLE_API_KEY (Gemini)\n"

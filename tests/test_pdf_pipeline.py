@@ -39,9 +39,9 @@ def run_pfd_discovery(df_enriched, original_cols, algo="fastfd"):
     return pfds
 
 
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 # TEST 1 : t2.csv — prefix(ZIP,3) → city
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 print("=" * 60)
 print("TEST 1 : t2.csv — ZIP → City")
 print("=" * 60)
@@ -71,9 +71,9 @@ else:
     print("  Aucune PFD trouvee")
 
 
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 # TEST 2 : t1.csv — first_token(name) → gender
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 print()
 print("=" * 60)
 print("TEST 2 : t1.csv — first_token(Full Name) → Gender")
@@ -100,9 +100,9 @@ else:
     print("  Aucune PFD exacte trouvee (normal : une PFD approx peut quand meme exister)")
 
 
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 # TEST 3 : US_Phone_Code.csv — State → Code
-# ════════════════════════════════════════════════════════════════════════════
+# ---
 print()
 print("=" * 60)
 print("TEST 3 : US_Phone_Code.csv — State → Code")

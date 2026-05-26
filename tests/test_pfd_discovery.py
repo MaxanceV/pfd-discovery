@@ -19,7 +19,7 @@ def test_full_discovery():
 
     # 2. Chargement des données
     if not os.path.exists(data_path):
-        print(f"❌ Erreur : Le fichier {data_path} est introuvable.")
+        print(f"Fichier introuvable : {data_path}")
         return
 
     df = pd.read_csv(data_path)
@@ -41,7 +41,7 @@ def test_full_discovery():
 
     # 5. Affichage des STATS (en dernier pour visibilité immédiate)
     print("\n" + "=" * 60)
-    print("📈 MÉTRIQUES DE PERFORMANCE (BASELINE CLASSIQUE)")
+    print("MÉTRIQUES DE PERFORMANCE (BASELINE CLASSIQUE)")
     print(f"  - Temps d'exécution : {stats['execution_time_seconds']} secondes")
     print(f"  - Candidats explorés : {stats['total_candidates_tested']}")
     print("=" * 60)
@@ -62,7 +62,7 @@ def test_full_discovery():
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=4, ensure_ascii=False)
     
-    print(f"\n✅ Rapport détaillé généré : {output_file}")
+    print(f"\nRapport détaillé généré : {output_file}")
 
 if __name__ == "__main__":
     test_full_discovery()

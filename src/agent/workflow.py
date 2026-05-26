@@ -9,32 +9,27 @@ Trois approches :
 
 import pandas as pd
 import time
-import json
-from typing import Tuple, List, Dict, Optional
+from typing import Dict, Optional
 
-# Imports des modules existants
 from src.patterns.pfd_discovery import discover_pfds
-from src.patterns.extractor import enrich_dataframe_multi, TRANSFORMATIONS
-
-# Imports des modules agentiques
+from src.patterns.extractor import TRANSFORMATIONS
 from src.agent.llm_provider import LLMProvider, get_default_provider
-from src.agent.semantic_profiler import get_optimized_config, get_profile_summary, suggest_candidate_pairs
+from src.agent.semantic_profiler import get_profile_summary, suggest_candidate_pairs
 
 
-# ─── Workflow 1 : Approche classique ─────────────────────────────────────
-def workflow_classical(df: pd.DataFrame, 
+# Workflow 1 : Approche classique
+def workflow_classical(df: pd.DataFrame,
                       min_support: int = 10, 
                       min_confidence: float = 0.85) -> Dict:
     print("\n" + "="*60)
-    print("🔵 WORKFLOW 1 : APPROCHE CLASSIQUE (Brute-force)")
+    print("WORKFLOW 1 : APPROCHE CLASSIQUE (Brute-force)")
     print("="*60)
-    
+
     start_time = time.time()
-    
-    print(f"📊 Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
-    print(f"🔧 Transformations : {len(TRANSFORMATIONS)} par colonne")
-    
-    # Découverte classique sans config (force brute)
+
+    print(f"Dataset : {df.shape[0]} lignes x {df.shape[1]} colonnes")
+    print(f"Transformations : {len(TRANSFORMATIONS)} par colonne")
+
     discovered_pfds, stats = discover_pfds(df, min_support=min_support, min_confidence=min_confidence)
     
     end_time = time.time()
@@ -50,7 +45,7 @@ def workflow_classical(df: pd.DataFrame,
         }
     }
     
-    print(f"\n✅ Résultats classiques :")
+    print(f"\nRésultats classiques :")
     print(f"   Découvertes : {len(discovered_pfds)} PFDs")
     print(f"   Temps : {result['execution_time_seconds']}s")
     print(f"   Candidates testées : {result['total_candidates_tested']}")
@@ -58,7 +53,7 @@ def workflow_classical(df: pd.DataFrame,
     return result
 
 
-# ─── Workflow 2 : Agentique v1 ───────────────────────────────────────────
+# Workflow 2 : Agentique v1
 def workflow_agent_v1(df: pd.DataFrame,
                       min_support: int = 10,
                       min_confidence: float = 0.85,
@@ -68,33 +63,30 @@ def workflow_agent_v1(df: pd.DataFrame,
         llm_provider = get_default_provider()
     
     print("\n" + "="*60)
-    print(f"🟠 WORKFLOW 2 : AGENTIQUE v1 (LLM: {llm_provider.provider_name.upper()})")
+    print(f"WORKFLOW 2 : AGENTIQUE v1 (LLM: {llm_provider.provider_name.upper()})")
     print("="*60)
-    
+
     start_time = time.time()
-    
-    print(f"📊 Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
-    
-    print(f"🤖 LLM ({llm_provider.provider_name}) analyse les colonnes et suggère les transformations...")
-    # Un seul appel API — on extrait la config depuis le même profil
+
+    print(f"Dataset : {df.shape[0]} lignes x {df.shape[1]} colonnes")
+    print(f"LLM ({llm_provider.provider_name}) analyse les colonnes...")
+    # get_profile_summary retourne types + recommandations en un seul appel API
     profile = get_profile_summary(df, llm_provider=llm_provider)
 
-    print(f"📋 Profil sémantique :")
+    print(f"Profil sémantique :")
     print(f"   Types identifiés : {list(profile.get('column_types', {}).keys())}")
 
-    # Extraire la config directement depuis le profil déjà obtenu (pas de second appel API)
     config = profile.get("transformation_recommendations", {})
     for col in df.columns:
         if col not in config:
+            # colonne absente de la réponse LLM : on se rabat sur raw
             config[col] = ["raw"]
     
     selected_transforms_count = sum(len(v) for v in config.values())
     all_transforms_count = len(TRANSFORMATIONS) * len(df.columns)
     
-    print(f"🔧 Transformations sélectionnées : {selected_transforms_count}/{all_transforms_count} ({100*selected_transforms_count//all_transforms_count}%)")
-    
-    print(f"📈 Application du filtre LLM à la découverte...")
-    # 🔥 L'UNIQUE appel à discover_pfds, AVEC la config
+    print(f"Transformations sélectionnées : {selected_transforms_count}/{all_transforms_count} ({100*selected_transforms_count//all_transforms_count}%)")
+    print(f"Application du filtre LLM à la découverte...")
     discovered_pfds, stats = discover_pfds(
         df, 
         min_support=min_support, 
@@ -123,7 +115,7 @@ def workflow_agent_v1(df: pd.DataFrame,
         }
     }
     
-    print(f"\n✅ Résultats agentique v1 ({llm_provider.provider_name}) :")
+    print(f"\nRésultats agentique v1 ({llm_provider.provider_name}) :")
     print(f"   Découvertes : {len(discovered_pfds)} PFDs")
     print(f"   Temps : {result['execution_time_seconds']}s")
     print(f"   Candidates testées : {result['total_candidates_tested']}")
@@ -131,7 +123,7 @@ def workflow_agent_v1(df: pd.DataFrame,
     return result
 
 
-# ─── Workflow 3 : Agentique v2 (Guided Search) ───────────────────────────
+# Workflow 3 : Agentique v2 (Guided Search)
 def workflow_agent_v2(df: pd.DataFrame,
                       min_support: int = 10,
                       min_confidence: float = 0.85,
@@ -148,15 +140,14 @@ def workflow_agent_v2(df: pd.DataFrame,
         llm_provider = get_default_provider()
 
     print("\n" + "="*60)
-    print(f"🟢 WORKFLOW 2 : GUIDED SEARCH (LLM: {llm_provider.provider_name.upper()})")
+    print(f"WORKFLOW 3 : GUIDED SEARCH (LLM: {llm_provider.provider_name.upper()})")
     print("="*60)
 
     start_time = time.time()
 
-    print(f"📊 Dataset : {df.shape[0]} lignes × {df.shape[1]} colonnes")
-    print(f"🤖 LLM ({llm_provider.provider_name}) propose des dépendances candidates...")
+    print(f"Dataset : {df.shape[0]} lignes x {df.shape[1]} colonnes")
+    print(f"LLM ({llm_provider.provider_name}) propose des dépendances candidates...")
 
-    # Étape 1 — Le LLM propose des paires (lhs_col, transform, rhs) sans aucun calcul
     candidate_pairs = suggest_candidate_pairs(df, llm_provider=llm_provider)
 
     print(f"   {len(candidate_pairs)} paires proposées par le LLM")
@@ -175,8 +166,7 @@ def workflow_agent_v2(df: pd.DataFrame,
             }
         }
 
-    # Étape 2 — L'algorithme valide uniquement les paires proposées
-    print(f"📈 Validation algorithmique des {len(candidate_pairs)} paires...")
+    print(f"Validation algorithmique des {len(candidate_pairs)} paires...")
 
     from src.patterns.extractor import enrich_dataframe
     from src.patterns.pfd_validator import compute_support_confidence
@@ -215,7 +205,7 @@ def workflow_agent_v2(df: pd.DataFrame,
         }
     }
 
-    print(f"\n✅ Résultats guided search ({llm_provider.provider_name}) :")
+    print(f"\nRésultats guided search ({llm_provider.provider_name}) :")
     print(f"   Paires proposées par le LLM : {len(candidate_pairs)}")
     print(f"   PFDs validées : {len(discovered_pfds)}")
     print(f"   Temps : {result['execution_time_seconds']}s")

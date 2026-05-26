@@ -101,7 +101,7 @@ def extract_domain(email) -> str:
     return s.split('@')[-1].lower().strip()
 
 
-# ── Catalogue de toutes les transformations disponibles ────────────────────
+# Catalogue de toutes les transformations disponibles
 # Cle    : nom de la transformation (utilise pour nommer les colonnes derivees)
 # Valeur : lambda appliquee sur chaque valeur de la colonne
 TRANSFORMATIONS = {

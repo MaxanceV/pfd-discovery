@@ -14,7 +14,7 @@ from src.patterns.extractor import (
     enrich_dataframe, enrich_dataframe_multi, TRANSFORMATIONS
 )
 
-# ── Tests unitaires ─────────────────────────────────────────────────────────
+# Tests unitaires
 
 def test_prefix():
     assert extract_prefix("90012", 3) == "900"
@@ -84,7 +84,7 @@ def test_enrich_dataframe_multi():
     assert df_e["name__last_token"].tolist()  == ["Smith", "Miller"]
     print("OK  enrich_dataframe_multi")
 
-# ── Tests sur les vrais datasets ────────────────────────────────────────────
+# Tests sur les vrais datasets
 
 def test_on_t1():
     """t1.csv : Employes — verifier first_token(Full Name) -> genre potentiel"""
@@ -159,7 +159,7 @@ def test_on_us_phone():
     assert "State__uppercase" in df_e.columns
     print(f"OK  test_on_us_phone — {len(df)} etats charges")
 
-# ── Lancement ────────────────────────────────────────────────────────────────
+# Lancement
 
 if __name__ == "__main__":
     print("=" * 50)

@@ -12,6 +12,9 @@ venv/
 .venv/
 env/
 
+# Résultats d'expériences
+results/
+
 # OS
 .DS_Store
 **/.DS_Store

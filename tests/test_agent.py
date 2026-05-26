@@ -9,7 +9,7 @@ load_dotenv()
 api_key = os.getenv("GOOGLE_API_KEY")
 
 if not api_key:
-    print("❌ Erreur : GOOGLE_API_KEY non trouvée dans le fichier .env")
+    print("Erreur : GOOGLE_API_KEY non trouvée dans le fichier .env")
     sys.exit(1)
 
 client = genai.Client(api_key=api_key)
@@ -40,20 +40,19 @@ Réponds de manière concise sous la forme : 'X -> Y'.
 """
 
 # 4. Exécution du test
-print("--- Test de l'Agentique (Gemini) ---")
+print("Test de l'agentique (Gemini)")
 try:
     response = client.models.generate_content(
         model=MODEL_NAME,
         contents=prompt,
     )
-    print("\nAnalyse de l'IA :")
+    print("\nAnalyse :")
     print(response.text)
 
-    # Vérification simple
     if "A -> D" in response.text and "B -> C" in response.text:
-        print("\n✅ Succès : L'IA a identifié les mêmes dépendances que l'algo classique !")
+        print("\nOK : dépendances identiques à l'algo classique.")
     else:
-        print("\n⚠️ L'IA a des résultats différents, vérifie son raisonnement.")
+        print("\nRésultats différents de l'algo classique.")
 
 except Exception as e:
-    print(f"❌ Erreur lors de l'appel API : {e}")
+    print(f"Erreur lors de l'appel API : {e}")
