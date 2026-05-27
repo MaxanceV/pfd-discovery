@@ -12,9 +12,10 @@ import time
 from typing import Dict, Optional
 
 from src.patterns.pfd_discovery import discover_pfds
-from src.patterns.extractor import TRANSFORMATIONS
+from src.patterns.extractor import TRANSFORMATIONS, enrich_dataframe
+from src.patterns.pfd_validator import compute_support_confidence
 from src.agent.llm_provider import LLMProvider, get_default_provider
-from src.agent.semantic_profiler import get_profile_summary, suggest_candidate_pairs
+from src.agent.semantic_profiler import semantic_profile, suggest_candidate_pairs
 
 
 # Workflow 1 : Approche classique
@@ -70,8 +71,7 @@ def workflow_agent_v1(df: pd.DataFrame,
 
     print(f"Dataset : {df.shape[0]} lignes x {df.shape[1]} colonnes")
     print(f"LLM ({llm_provider.provider_name}) analyse les colonnes...")
-    # get_profile_summary retourne types + recommandations en un seul appel API
-    profile = get_profile_summary(df, llm_provider=llm_provider)
+    profile = semantic_profile(df, llm_provider=llm_provider)
 
     print(f"Profil sémantique :")
     print(f"   Types identifiés : {list(profile.get('column_types', {}).keys())}")
@@ -167,9 +167,6 @@ def workflow_agent_v2(df: pd.DataFrame,
         }
 
     print(f"Validation algorithmique des {len(candidate_pairs)} paires...")
-
-    from src.patterns.extractor import enrich_dataframe
-    from src.patterns.pfd_validator import compute_support_confidence
 
     discovered_pfds = []
     for pair in candidate_pairs:

@@ -102,12 +102,6 @@ pfd-discovery/
 │       └── US_Phone_Code.csv       # State → Code téléphone
 │
 ├── src/
-│   ├── core/                       # Algorithmes FD du cours (référence)
-│   │   ├── partition.py            # Partitions d'équivalence (brique de base TANE)
-│   │   ├── tane.py                 # Algorithme TANE complet avec pruning
-│   │   ├── fastfd.py               # Algorithme FASTFD : difference sets + hitting sets
-│   │   └── fd_validator.py         # Validation de FDs exactes
-│   │
 │   ├── patterns/                   # Découverte PFD
 │   │   ├── extractor.py            # Extraction de patterns (prefix, token, domain...)
 │   │   ├── pfd_validator.py        # Calcul support et confidence d'une PFD
@@ -116,8 +110,6 @@ pfd-discovery/
 │   ├── agent/                      # Couche LLM agentique
 │   │   ├── llm_provider.py         # Abstraction multi-providers (Claude, Mistral, Groq...)
 │   │   ├── semantic_profiler.py    # LLM analyse le schéma et les types d'attributs
-│   │   ├── candidate_selector.py   # LLM filtre et priorise les candidats
-│   │   ├── llm_comparison.py       # Comparaison de plusieurs LLMs sur un même dataset
 │   │   └── workflow.py             # Les 3 workflows (classique, agentique v1, v2)
 │   │
 │   └── experiments/
@@ -125,14 +117,10 @@ pfd-discovery/
 │       └── metrics.py              # Calcule et compare les métriques
 │
 ├── tests/                          # Tests unitaires et d'intégration
-│   ├── test_core.py                # Tests TANE/FASTFD (dataset exemple du cours, slide 7)
 │   ├── test_extractor.py           # Tests des transformations de patterns
 │   ├── test_pdf_validator.py       # Tests du calcul support/confidence
 │   ├── test_pfd_discovery.py       # Tests de la découverte classique
-│   ├── test_pdf_pipeline.py        # Tests du pipeline bout en bout
-│   ├── test_real_data.py           # Tests sur les vrais datasets
-│   ├── test_agent.py               # Tests des workflows agentiques
-│   └── test_llm_comparison.py      # Tests de la comparaison LLM
+│   └── test_agent.py               # Tests des workflows agentiques
 │
 ├── notebooks/
 │   └── exploration.ipynb           # Exploration et visualisation des résultats
@@ -152,26 +140,11 @@ pfd-discovery/
 ## Lancer les tests
 
 ```bash
-python tests/test_core.py
+python tests/test_extractor.py
+python tests/test_pdf_validator.py
+python tests/test_pfd_discovery.py
+python tests/test_agent.py
 ```
-
-Résultat attendu (dataset exemple du cours, slide 7) :
-
-```
-=== TANE ===
-  ['A'] → D
-  ['D'] → A
-  ['B'] → C
-  ['C'] → B
-
-=== FASTFD ===
-  ['A'] → D
-  ['B'] → C
-  ['C'] → B
-  ['D'] → A
-```
-
-Les deux algorithmes doivent retourner exactement les mêmes FDs.
 
 ---
 

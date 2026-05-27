@@ -50,20 +50,20 @@ DEFAULTS = {
 def normalize_workflow_result(raw):
     """
     Ramene la sortie de n'importe quel workflow au format uniforme attendu
-    par extract_basic_metrics et compute_recall.
+    par extract_basic_metrics.
 
-    Necessaire car workflow_agent_v2 retourne des candidats selectionnes par
-    le LLM qui ont 'score' au lieu de 'confidence', et pas forcement 'support'.
+    Les trois workflows produisent tous des PFDs avec lhs/rhs/support/confidence,
+    on extrait juste ces 4 champs pour ignorer les méta (violations, groups, etc.).
     """
-    pfds = raw.get("discovered_pfds", [])
-    normalized = []
-    for p in pfds:
-        normalized.append({
-            "lhs":        p.get("lhs", ""),
-            "rhs":        p.get("rhs", ""),
-            "support":    p.get("support",    p.get("llm_score", 0)),
-            "confidence": p.get("confidence", p.get("score",     0)),
-        })
+    normalized = [
+        {
+            "lhs":        p["lhs"],
+            "rhs":        p["rhs"],
+            "support":    p["support"],
+            "confidence": p["confidence"],
+        }
+        for p in raw.get("discovered_pfds", [])
+    ]
     return {
         "discovered_pfds":         normalized,
         "execution_time_seconds":  raw.get("execution_time_seconds", 0),
@@ -216,6 +216,9 @@ def parse_args():
 
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
+
     args = parse_args()
 
     # Auto-detection des providers si workflows agentiques sans provider explicite

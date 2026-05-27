@@ -26,8 +26,11 @@ def discover_pfds(df: pd.DataFrame,
 
     for lhs in pattern_cols:
         for rhs in original_cols:
-            # lhs.startswith(rhs) filtre les auto-dépendances (ex: name__raw -> name)
-            if lhs.startswith(rhs):
+            # Filtrer les auto-dépendances (ex: name__raw -> name)
+            # Comparer le nom de colonne source du pattern, pas un préfixe textuel :
+            # startswith aurait des faux positifs si deux colonnes partagent un préfixe
+            # (ex: "name_full__raw" filtré à tort face à "name").
+            if lhs.split("__", 1)[0] == rhs:
                 continue
             candidates_count += 1
             res = compute_support_confidence(df_enriched, lhs, rhs)

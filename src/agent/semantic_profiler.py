@@ -27,8 +27,11 @@ def _normalize_col(col: str) -> str:
     """
     Normalise un nom de colonne pour le LLM : minuscules, espaces → underscores.
     Exemples : "Full Name" → "full_name", "ADDRESS_2" → "address_2"
+
+    strip() avant replace() : sinon "  city  " devient "__city__" car strip()
+    ne retire pas les underscores.
     """
-    return col.lower().replace(" ", "_").strip()
+    return col.strip().lower().replace(" ", "_")
 
 
 def _build_col_mapping(df: pd.DataFrame) -> dict:
@@ -171,18 +174,6 @@ Réponds en JSON strict (pas de markdown, pas d'explication avant) :
 
     return result
 
-
-
-def get_profile_summary(df: pd.DataFrame, llm_provider: LLMProvider = None) -> dict:
-    """
-    Retourne le profil complet (types + recommendations + targets).
-    Utile pour le debugging et l'inspection.
-
-    Args:
-        df           : DataFrame à analyser
-        llm_provider : LLMProvider optionnel
-    """
-    return semantic_profile(df, llm_provider=llm_provider)
 
 
 def suggest_candidate_pairs(df: pd.DataFrame, llm_provider: LLMProvider = None) -> list:

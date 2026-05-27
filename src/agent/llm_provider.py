@@ -22,15 +22,11 @@ Architecture :
   - LLMProvider : interface abstraite
   - Implementations : ClaudeProvider, OpenAIProvider, GeminiProvider, GroqProvider, etc.
   - LLMFactory : factory avec auto-découverte
-  - format_provider_name() : formate les noms pour l'affichage
 """
 
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional, List
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 class LLMProvider(ABC):
@@ -288,7 +284,7 @@ class OllamaProvider(LLMProvider):
             import requests
             response = requests.get(f"{self.base_url}/api/tags", timeout=2)
             return response.status_code == 200
-        except:
+        except Exception:
             return False
 
 
@@ -373,9 +369,8 @@ class LLMFactory:
         print("\nLLM Providers disponibles :\n")
         status = LLMFactory.get_available_providers()
         for provider_name, msg in status.items():
-            display_name = format_provider_name(provider_name)
-            print(f"  {display_name:<20} : {msg}")
-    
+            print(f"  {provider_name.capitalize():<20} : {msg}")
+
     @staticmethod
     def list_detected_providers() -> List[str]:
         """
@@ -393,55 +388,22 @@ class LLMFactory:
         return detected
 
 
-def format_provider_name(provider_name: str) -> str:
-    """
-    Formate le nom d'un provider pour l'affichage en "Nom Présenté".
-    
-    Exemples :
-      "claude" → "Claude"
-      "openai" → "Open AI"
-      "gemini" → "Gemini"
-      "groq" → "Groq"
-      "huggingface" → "Hugging Face"
-      "mistral" → "Mistral"
-    
-    Args:
-        provider_name : nom du provider en minuscules
-    
-    Returns:
-        Nom formaté avec majuscule et espaces appropriés
-    """
-    special_cases = {
-        "claude": "Claude",
-        "openai": "Open AI",
-        "gemini": "Gemini",
-        "groq": "Groq",
-        "huggingface": "Hugging Face",
-        "mistral": "Mistral",
-        "ollama": "Ollama"
-    }
-    if provider_name in special_cases:
-        return special_cases[provider_name]
-    return provider_name.capitalize()
-
-
 def get_default_provider() -> LLMProvider:
     """
     Retourne le premier provider disponible détecté dans le .env.
-    
+
     Ordre de priorité : Claude → OpenAI → Gemini → Groq → HuggingFace → Mistral
-    
+
     Raises:
         RuntimeError si aucun provider n'est configuré
     """
     priority_order = ["claude", "openai", "gemini", "groq", "huggingface", "mistral", "ollama"]
-    
+
     for provider_name in priority_order:
         try:
             provider = LLMFactory.create(provider_name)
             if provider.validate_credentials():
-                display_name = format_provider_name(provider_name)
-                print(f"Provider par défaut : {display_name}")
+                print(f"Provider par défaut : {provider_name.capitalize()}")
                 return provider
         except Exception:
             # provider non configuré ou package manquant : on passe au suivant

@@ -82,44 +82,13 @@ results = workflow_agent_v1(df, llm_provider=provider)
 
 ## Comparaison automatique des modèles
 
-```python
-from src.agent.llm_comparison import full_comparison
-
-results = full_comparison(df)
-```
-
-Résultat :
-
-```
-Provider        Profiling        Sélection        Qualité
----------------------------------------------------------
-GROQ            OK 0.89s         OK 0.65s          0.86%
-HUGGING FACE    OK 2.15s         OK 1.87s          0.82%
-MISTRAL         OK 1.35s         OK 0.98s          0.89%
-```
-
----
-
-## Formatage des noms pour les rapports
-
-```python
-from src.agent.llm_provider import format_provider_name
-
-format_provider_name("openai")       # "Open AI"
-format_provider_name("huggingface")  # "Hugging Face"
-format_provider_name("mistral")      # "Mistral"
-format_provider_name("groq")         # "Groq"
-```
-
----
-
-## Fichier de test
-
-Voir : [tests/test_llm_comparison.py](tests/test_llm_comparison.py)
+Utiliser le runner d'expériences avec plusieurs providers :
 
 ```bash
-python tests/test_llm_comparison.py
+python -m src.experiments.runner --workflows agent_v1 agent_v2 --providers claude mistral groq --runs 3
 ```
+
+Les résultats agrégés (temps, nb_pfds, mean_support, mean_confidence) sont écrits dans `results/comparison_table.csv`.
 
 ---
 
@@ -172,13 +141,8 @@ results = workflow_agent_v1(df, llm_provider=provider)
 ```
 src/agent/
 ├── llm_provider.py              # Abstraction générique + auto-découverte
-├── llm_comparison.py            # Comparaison des modèles
 ├── semantic_profiler.py         # Support multi-LLM
-├── candidate_selector.py        # Support multi-LLM
 └── workflow.py                  # Support multi-LLM
-
-tests/
-└── test_llm_comparison.py       # Exemples d'utilisation
 ```
 
 ---
@@ -187,10 +151,8 @@ tests/
 
 ### Comparer tous les modèles
 
-```python
-from src.agent.llm_comparison import full_comparison
-
-results = full_comparison(df)
+```bash
+python -m src.experiments.runner --workflows agent_v1 agent_v2 --providers claude openai gemini
 ```
 
 ### Utiliser un modèle spécifique
@@ -207,14 +169,4 @@ from src.agent.llm_provider import LLMFactory
 
 available = LLMFactory.list_detected_providers()
 print(f"Modèles détectés : {available}")
-```
-
-### Formater les noms pour un rapport
-
-```python
-from src.agent.llm_provider import format_provider_name
-
-names = ["openai", "huggingface", "groq"]
-formatted = [format_provider_name(n) for n in names]
-print(formatted)  # ["Open AI", "Hugging Face", "Groq"]
 ```
