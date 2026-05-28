@@ -1,18 +1,11 @@
 """
 Orchestrateur des experiences de decouverte de PFDs.
 
-Generique : aucun nom de dataset ni de colonne en dur ici.
-
 Pipeline pour chaque (dataset x workflow x provider) :
   1. Charger le CSV
   2. Executer le workflow (classical, agent_v1, agent_v2)
   3. Calculer les metriques brutes (support, confidence, temps, nb_pfds)
   4. Sauvegarder les resultats
-
-Usage :
-    python src/experiments/runner.py
-    python src/experiments/runner.py --datasets t2.csv --workflows classical
-    python src/experiments/runner.py --workflows agent_v1 --providers claude mistral
 """
 
 import argparse
@@ -52,8 +45,7 @@ def normalize_workflow_result(raw):
     Ramene la sortie de n'importe quel workflow au format uniforme attendu
     par extract_basic_metrics.
 
-    Les trois workflows produisent tous des PFDs avec lhs/rhs/support/confidence,
-    on extrait juste ces 4 champs pour ignorer les méta (violations, groups, etc.).
+    Les trois workflows produisent tous des PFDs avec lhs/rhs/support/confidence, on extrait ces 4 champs.
     """
     normalized = [
         {

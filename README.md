@@ -15,7 +15,7 @@ Ce projet implémente et compare deux approches pour la découverte de **Pattern
 
 Une PFD est une généralisation des dépendances fonctionnelles classiques. Au lieu de comparer des valeurs entières, elle compare des **patterns** extraits de ces valeurs.
 
-**Exemple :** `prefix(zip, 3) → city` — les 3 premiers chiffres du code postal déterminent la ville.
+**Exemple :** `prefix(zip, 3) → state` — les 3 premiers chiffres du code postal déterminent l'état.
 
 ---
 

@@ -1,9 +1,6 @@
 """
 Métriques d'évaluation pour la découverte de PFDs.
 
-Ce module est entièrement générique : il ne connaît aucun dataset, aucun nom
-de colonne, aucun fichier CSV.
-
 Fonctions exposées :
     extract_basic_metrics(result)    — métriques techniques d'un workflow
     aggregate_runs(runs)             — agrège plusieurs runs (moyenne, écart-type)
