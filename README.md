@@ -180,3 +180,39 @@ python tests/test_agent.py
 | `python -m src.experiments.runner --min-support 20 --min-confidence 0.9` | Seuils personnalisés |
 
 Les résultats sont sauvegardés dans `results/` : un fichier JSON par combinaison (dataset × workflow × provider) et un tableau comparatif `comparison_table.csv`.
+
+---
+
+## Arguments du runner
+
+Référence complète de tous les arguments acceptés par `src/experiments/runner.py`.
+
+| Argument | Type | Défaut | Description |
+|---|---|---|---|
+| `--datasets` | liste | `t1.csv t2.csv t3.csv US_Phone_Code.csv` | Un ou plusieurs fichiers CSV à traiter (cherchés dans `--data-dir`) |
+| `--workflows` | liste | `classical` | Workflows à exécuter. Valeurs possibles : `classical`, `agent_v1`, `agent_v2` |
+| `--providers` | liste | *(auto-détecté)* | Providers LLM à utiliser pour les workflows agentiques. Valeurs possibles : `groq`, `mistral`, `huggingface`. Si absent, les providers disponibles sont détectés via les clés API du `.env` |
+| `--runs` | entier | `1` | Nombre de répétitions par combinaison (dataset × workflow × provider), utile pour mesurer la variance des workflows agentiques |
+| `--min-support` | entier | `10` | Seuil minimum de support pour retenir une PFD (nombre de lignes couvertes) |
+| `--min-confidence` | flottant | `0.85` | Seuil minimum de confiance pour retenir une PFD (entre 0 et 1) |
+| `--data-dir` | chemin | `data/pfd_validation` | Dossier racine où sont cherchés les fichiers CSV |
+| `--results-dir` | chemin | `results` | Dossier de sortie pour les fichiers JSON et le tableau comparatif |
+
+### Exemples
+
+```bash
+# Workflow classique sur tous les datasets (défaut)
+python -m src.experiments.runner
+
+# Un seul dataset, un seul workflow
+python -m src.experiments.runner --datasets t2.csv --workflows classical
+
+# Tous les workflows avec providers explicites
+python -m src.experiments.runner --workflows classical agent_v1 agent_v2 --providers groq mistral
+
+# 3 répétitions, seuils personnalisés
+python -m src.experiments.runner --workflows agent_v2 --runs 3 --min-support 20 --min-confidence 0.9
+
+# Dataset custom dans un autre dossier
+python -m src.experiments.runner --datasets mon_fichier.csv --data-dir data/CHE --results-dir results/CHE
+```
