@@ -117,10 +117,15 @@ pfd-discovery/
 │       └── metrics.py              # Calcule et compare les métriques
 │
 ├── tests/                          # Tests unitaires et d'intégration
+│   ├── conftest.py                 # Fixtures partagées pytest
 │   ├── test_extractor.py           # Tests des transformations de patterns
-│   ├── test_pdf_validator.py       # Tests du calcul support/confidence
+│   ├── test_pfd_validator.py       # Tests du calcul support/confidence
 │   ├── test_pfd_discovery.py       # Tests de la découverte classique
-│   └── test_agent.py               # Tests des workflows agentiques
+│   ├── test_metrics.py             # Tests du calcul de métriques
+│   ├── test_runner.py              # Tests de l'orchestrateur d'expériences
+│   ├── test_llm_provider.py        # Tests de l'abstraction multi-providers
+│   ├── test_semantic_profiler.py   # Tests du profiler sémantique LLM
+│   └── test_workflow.py            # Tests des 3 workflows
 │
 ├── notebooks/
 │   └── exploration.ipynb           # Exploration et visualisation des résultats
@@ -131,7 +136,9 @@ pfd-discovery/
 ├── results/                        # Résultats JSON générés automatiquement
 ├── .env                            # Clés API — NE PAS COMMITER
 ├── .gitignore
+├── pytest.ini                      # Configuration pytest
 ├── requirements.txt
+├── MULTI_LLM_GUIDE.md              # Guide d'intégration des providers LLM
 └── README.md
 ```
 
@@ -158,13 +165,6 @@ python tests/test_agent.py
 | `pfd_validation/US_Phone_Code.csv` | États US et codes téléphone | `State → Code` |
 
 ---
-
-## Points importants
-
-- Ne jamais commiter le fichier `.env`
-- Commiter régulièrement avec des messages clairs
-- Utiliser les mêmes datasets pour toutes les méthodes (comparaison équitable)
-- Seuils par défaut suggérés : `support >= 10`, `confidence >= 0.85`
 
 ## Lancer les expériences
 
