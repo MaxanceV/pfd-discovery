@@ -1,6 +1,6 @@
 # PFD-Discovery — Découverte de Pattern Functional Dependencies
 
-> Master Qualité des Données — Université Paris Dauphine
+> Master MIAGE — Université Paris Dauphine
 > Cours de Khalid Belhajjame
 > **Maxance Villame · Ferdinand Martin Lavigne · Baptiste Matrat · Marie Probert · Justine Rault**
 
