@@ -175,7 +175,7 @@ python tests/test_agent.py
 | `python -m src.experiments.runner` | Workflow classique sur tous les datasets |
 | `python -m src.experiments.runner --datasets t1.csv` | Workflow classique sur un dataset |
 | `python -m src.experiments.runner --workflows classical agent_v1 agent_v2` | Tous les workflows, providers auto-détectés |
-| `python -m src.experiments.runner --workflows agent_v1 agent_v2 --providers claude mistral` | Workflows agentiques avec providers spécifiques |
+| `python -m src.experiments.runner --workflows agent_v1 agent_v2 --providers groq mistral` | Workflows agentiques avec providers spécifiques |
 | `python -m src.experiments.runner --workflows agent_v1 --runs 3` | Plusieurs runs pour mesurer la variance |
 | `python -m src.experiments.runner --min-support 20 --min-confidence 0.9` | Seuils personnalisés |
 
@@ -197,22 +197,3 @@ Référence complète de tous les arguments acceptés par `src/experiments/runne
 | `--min-confidence` | flottant | `0.85` | Seuil minimum de confiance pour retenir une PFD (entre 0 et 1) |
 | `--data-dir` | chemin | `data/pfd_validation` | Dossier racine où sont cherchés les fichiers CSV |
 | `--results-dir` | chemin | `results` | Dossier de sortie pour les fichiers JSON et le tableau comparatif |
-
-### Exemples
-
-```bash
-# Workflow classique sur tous les datasets (défaut)
-python -m src.experiments.runner
-
-# Un seul dataset, un seul workflow
-python -m src.experiments.runner --datasets t2.csv --workflows classical
-
-# Tous les workflows avec providers explicites
-python -m src.experiments.runner --workflows classical agent_v1 agent_v2 --providers groq mistral
-
-# 3 répétitions, seuils personnalisés
-python -m src.experiments.runner --workflows agent_v2 --runs 3 --min-support 20 --min-confidence 0.9
-
-# Dataset custom dans un autre dossier
-python -m src.experiments.runner --datasets mon_fichier.csv --data-dir data/CHE --results-dir results/CHE
-```
